@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kat Nicholas | Video Editing for Coaches & Consultants</title>
+<script src="https://kit.fontawesome.com/d350a33ddc.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/*──────────────────────────────────────────────
+  RESET & TOKENS
+──────────────────────────────────────────────*/
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:   #FAF8F3;
+  --cream2:  #F3EFE6;
+  --gold:    #C8960A;
+  --gold-lt: #E8B800;
+  --gold-dk: #8B6500;
+  --orange:  #B85010;
+  --navy:    #0F1520;
+  --purple:  #1A0A2E;
+  --charcoal:#2A2A2A;
+  --mid:     #6B6B6B;
+  --light:   #9CA3AF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cinzel',serif}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--cream2)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/*──────────────────────────────────────────────
+  NAV
+──────────────────────────────────────────────*/
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 6%;
+  background:rgba(250,248,243,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(200,150,10,0.12);
+  transition:all .3s;
+}
+nav.scrolled{padding:14px 6%;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{
+  width:36px;height:36px;border-radius:6px;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.nav-logo-mark::after{
+  content:'';position:absolute;
+  width:0;height:0;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-bottom:14px solid var(--gold);
+  top:50%;left:50%;transform:translate(-50%,-58%);
+}
+.nav-logo-mark::before{
+  content:'';position:absolute;
+  width:4px;height:4px;border-radius:50%;
+  background:var(--gold-lt);
+  top:7px;left:50%;transform:translateX(-50%);
+}
+.nav-wordmark{font-family:'Cinzel',serif;font-size:15px;font-weight:900;color:var(--navy);letter-spacing:2px}
+.nav-wordmark span{color:var(--gold)}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:12px;font-weight:400;color:var(--mid);letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{
+  background:var(--navy);color:var(--gold-lt);
+  padding:11px 28px;border-radius:4px;
+  font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;
+  transition:all .25s;border:1px solid var(--navy);
+}
+.nav-cta:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:22px;height:1.5px;background:var(--navy);border-radius:2px;transition:.3s}
+.mob-nav{
+  display:none;position:fixed;top:72px;left:0;right:0;
+  background:rgba(250,248,243,0.98);backdrop-filter:blur(16px);
+  padding:24px 6%;flex-direction:column;gap:0;
+  border-bottom:1px solid rgba(200,150,10,0.15);z-index:998;
+}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:15px;color:var(--charcoal);padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.06);letter-spacing:1px}
+
+/*──────────────────────────────────────────────
+  HERO — SPLIT SCREEN
+──────────────────────────────────────────────*/
+#home{
+  min-height:100vh;display:grid;
+  grid-template-columns:1fr 1fr;
+  padding-top:80px;
+}
+.hero-left{
+  background:var(--navy); 
+  /* background: url(/Screenshot\ 2026-04-28\ 113508.png) no-repeat center; */
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;min-height:100vh;
+  padding:60px 48px;
+}
+/* ── HERO PHOTO (behind the logo) ───────────────── */
+.hero-left {
+  position: relative; /* make sure this is already there */
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;      /* full width of left panel */
+  height: 100%;     /* full height of left panel */
+  object-fit: cover;
+  object-position: center top;
+  z-index: 1;       /* behind the logo rings */
+
+  /* Fades photo into dark background on all edges */
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black 15%,
+    black 75%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black 15%,
+    black 75%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+
+ opacity: 0.5; /* adjust 0.3 = subtle, 0.7 = strong */
+}
+
+/* Logo ring stays on top */
+.hero-brand-mark {
+  position: relative;
+  z-index: 2;
+}
+.hero-left-bg{
+  position:absolute;inset:0;
+  z-index: 0;
+  background:radial-gradient(ellipse at 40% 60%,rgba(196,97,26,.35) 0%,transparent 65%),
+             radial-gradient(ellipse at 80% 20%,rgba(232,184,0,.1) 0%,transparent 50%);
+}
+.hero-brand-mark{position:relative;z-index:2;text-align:center;}
+.hbm-ring{
+  width:280px;height:280px;border-radius:50%;
+  border:1px solid rgba(232,184,0,.25);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;margin:0 auto;
+}
+.hbm-ring::before{
+  content:'';position:absolute;inset:-16px;border-radius:50%;
+  border:1px solid rgba(232,184,0,.1);
+}
+.hbm-ring::after{
+  content:'';position:absolute;inset:-32px;border-radius:50%;
+  border:1px solid rgba(232,184,0,.05);
+}
+.hbm-inner{
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(ellipse,#2A1245 0%,#0D0618 100%);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:0;
+  position:relative;overflow:hidden;
+}
+.hbm-inner::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 65%,rgba(196,97,26,.5) 0%,transparent 60%);
+}
+.hbm-kat{
+  font-family:'Cinzel',serif;font-size:72px;font-weight:900;
+  color:var(--gold);position:relative;z-index:1;
+  text-shadow:0 0 40px rgba(196,97,26,.7);line-height:1;
+}
+.hbm-nicholas{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;
+  color:rgba(240,240,255,.4);position:relative;z-index:1;margin-top:4px;
+}
+.hbm-tag{
+  margin-top:28px;font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(240,240,255,.35);
+}
+.hbm-line{width:40px;height:1px;background:var(--gold);opacity:.4;margin:12px auto 0}
+
+.hero-right{
+  background:var(--cream);
+  display:flex;align-items:center;
+  padding:80px 64px;position:relative;
+}
+.hero-right::before{
+  content:'';position:absolute;top:0;left:0;
+  width:1px;height:100%;
+  background:linear-gradient(to bottom,transparent,var(--gold),transparent);
+  opacity:.3;
+}
+.hero-content{max-width:560px}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:28px;
+}
+.hero-kicker::before{content:'';width:24px;height:1px;background:var(--orange)}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,5vw,72px);font-weight:600;
+  line-height:1.08;margin-bottom:28px;color:var(--navy);
+}
+.hero-h1 em{color:var(--gold);font-style:italic}
+.hero-sub{
+  font-size:17px;font-weight:300;color:var(--mid);
+  line-height:1.8;margin-bottom:44px;max-width:460px;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
+.btn-dark{
+  background:var(--navy);color:var(--gold-lt);
+  padding:16px 40px;border-radius:4px;
+  font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;
+  border:2px solid var(--navy);transition:all .25s;
+}
+.btn-dark:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,150,10,.25)}
+.btn-ghost{
+  background:transparent;color:var(--navy);
+  padding:14px 40px;border-radius:4px;
+  font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;
+  border:2px solid rgba(15,21,32,.25);transition:all .25s;
+}
+.btn-ghost:hover{border-color:var(--navy);transform:translateY(-2px)}
+.hero-proof{display:flex;gap:40px;padding-top:40px;border-top:1px solid rgba(0,0,0,.08)}
+.proof-item{}
+.proof-num{font-family:'Cinzel',serif;font-size:32px;font-weight:900;color:var(--navy)}
+.proof-label{font-size:11px;color:var(--light);letter-spacing:1px;margin-top:2px}
+
+/*──────────────────────────────────────────────
+  TICKER / MARQUEE
+──────────────────────────────────────────────*/
+.ticker{
+  background:var(--navy);padding:16px 0;
+  overflow:hidden;border-top:1px solid rgba(232,184,0,.1);
+  border-bottom:1px solid rgba(232,184,0,.1);
+}
+.ticker-track{
+  display:flex;gap:0;white-space:nowrap;
+  animation:ticker 30s linear infinite;
+}
+.ticker-item{
+  font-family:'Cinzel',serif;font-size:11px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:rgba(232,184,0,.5);
+  padding:0 40px;flex-shrink:0;
+}
+.ticker-dot{color:var(--gold)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/*──────────────────────────────────────────────
+  SECTION BASE
+──────────────────────────────────────────────*/
+section{padding:110px 6%}
+.s-tag{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--orange);display:flex;align-items:center;gap:12px;margin-bottom:14px;
+}
+.s-tag::before{content:'';width:24px;height:1px;background:var(--orange)}
+.s-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(34px,4vw,58px);font-weight:600;
+  line-height:1.1;color:var(--navy);margin-bottom:20px;
+}
+.s-title em{color:var(--gold);font-style:italic}
+.s-body{font-size:16px;font-weight:300;color:var(--mid);line-height:1.85;max-width:560px}
+.gold-rule{width:48px;height:2px;background:var(--gold);margin-bottom:32px}
+
+/*──────────────────────────────────────────────
+  ABOUT
+──────────────────────────────────────────────*/
+#about{background:var(--cream2)}
+.about-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:100px;align-items:center}
+.about-visual{position:relative}
+.about-photo{
+  width:100%;aspect-ratio:4/5;
+  background:linear-gradient(160deg,var(--navy) 0%,var(--purple) 100%);
+  border-radius:2px;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;position:relative;overflow:hidden;
+}
+.about-photo::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 65%,rgba(196,97,26,.35) 0%,transparent 65%);
+}
+.ap-kat{font-family:'Cinzel',serif;font-size:80px;font-weight:900;color:var(--gold);position:relative;z-index:1;text-shadow:0 0 40px rgba(196,97,26,.5)}
+.ap-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(240,240,255,.3);position:relative;z-index:1}
+.about-badge{
+  position:absolute;bottom:-20px;right:-20px;
+  background:var(--navy);border:2px solid var(--gold);
+  padding:20px 24px;border-radius:2px;
+}
+.ab-num{font-family:'Cinzel',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
+.ab-label{font-size:10px;color:rgba(240,240,255,.5);letter-spacing:2px;margin-top:4px}
+.about-stripe{
+  position:absolute;top:24px;left:-16px;
+  width:4px;height:80px;
+  background:linear-gradient(to bottom,var(--gold),var(--orange));
+  border-radius:2px;
+}
+.about-text p{font-size:16px;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:18px}
+.about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.pill{
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  padding:8px 18px;border-radius:2px;
+  border:1px solid rgba(200,150,10,.3);color:var(--gold-dk);
+  background:rgba(200,150,10,.06);
+}
+
+/*──────────────────────────────────────────────
+  PROCESS
+──────────────────────────────────────────────*/
+#process{background:var(--navy);padding:110px 6%}
+#process .s-title{color:#F0F0FF}
+#process .s-title em{color:var(--gold)}
+#process .s-body{color:rgba(240,240,255,.55)}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-top:72px;
+}
+.process-step{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  padding:40px 32px;position:relative;
+  transition:all .3s;
+}
+.process-step:hover{background:rgba(232,184,0,.04);border-color:rgba(232,184,0,.2)}
+.ps-num{
+  font-family:'Cinzel',serif;font-size:56px;font-weight:900;
+  color:rgba(232,184,0,.12);line-height:1;margin-bottom:20px;
+  transition:color .3s;
+}
+.process-step:hover .ps-num{color:rgba(232,184,0,.25)}
+.ps-title{font-family:'Cinzel',serif;font-size:15px;color:var(--gold);margin-bottom:12px;letter-spacing:1px}
+.ps-body{font-size:13px;color:rgba(240,240,255,.5);line-height:1.7}
+.ps-arrow{
+  position:absolute;top:50%;right:-1px;
+  transform:translateY(-50%);
+  width:24px;height:24px;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(232,184,0,.4);font-size:12px;z-index:2;
+}
+.process-step:last-child .ps-arrow{display:none}
+
+/*──────────────────────────────────────────────
+  SERVICES
+──────────────────────────────────────────────*/
+#services{background:var(--cream)}
+.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:72px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,0,0,.08)}
+.svc-card{
+  background:var(--cream);padding:40px 36px;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.svc-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--orange));
+  transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.svc-card:hover{background:var(--cream2)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-num{font-family:'Cinzel',serif;font-size:11px;color:rgba(200,150,10,.4);letter-spacing:2px;margin-bottom:20px}
+.svc-icon{font-size:28px;margin-bottom:16px}
+.svc-title{font-family:'Cinzel',serif;font-size:16px;color:var(--navy);margin-bottom:12px;font-weight:700}
+.svc-body{font-size:13px;color:var(--mid);line-height:1.75;margin-bottom:20px}
+.svc-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500}
+
+/*──────────────────────────────────────────────
+  PORTFOLIO
+──────────────────────────────────────────────*/
+#portfolio{background:var(--cream2);padding:110px 6%}
+.port-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px}
+.port-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto;
+  gap:16px;
+}
+.port-item{
+  border-radius:2px;overflow:hidden;
+  background:var(--navy);
+  position:relative;cursor:pointer;
+  transition:transform .3s,box-shadow .3s;
+}
+.port-item:hover{transform:scale(1.015);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.port-item:nth-child(1){grid-column:span 7;grid-row:span 2}
+.port-item:nth-child(2){grid-column:span 5}
+.port-item:nth-child(3){grid-column:span 5}
+.port-item:nth-child(4){grid-column:span 4}
+.port-item:nth-child(5){grid-column:span 4}
+.port-item:nth-child(6){grid-column:span 4}
+.port-thumb{
+  width:100%;aspect-ratio:16/9;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.port-item:nth-child(1) .port-thumb{aspect-ratio:unset;height:100%;min-height:340px}
+.port-bg{position:absolute;inset:0}
+.port-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0);
+  transition:background .3s;
+  display:flex;align-items:center;justify-content:center;
+}
+.port-item:hover .port-overlay{background:rgba(0,0,0,.4)}
+.play-ring{
+  width:56px;height:56px;border-radius:50%;
+  border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:18px;
+  opacity:0;transform:scale(.8);transition:all .3s;
+}
+.port-item:hover .play-ring{opacity:1;transform:scale(1)}
+.port-info{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+  padding:32px 20px 16px;
+  transform:translateY(4px);transition:transform .3s;
+}
+.port-item:hover .port-info{transform:translateY(0)}
+.port-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.port-title{font-size:13px;color:#fff;font-weight:500}
+
+/*──────────────────────────────────────────────
+  TESTIMONIALS
+──────────────────────────────────────────────*/
+#testimonials{background:var(--navy);padding:110px 6%}
+#testimonials .s-title{color:#F0F0FF}
+#testimonials .s-title em{color:var(--gold)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:72px}
+.testi-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:2px;padding:40px;
+  transition:all .3s;
+}
+.testi-card:hover{background:rgba(232,184,0,.04);border-color:rgba(232,184,0,.2);transform:translateY(-4px)}
+.testi-card.featured{
+  background:rgba(232,184,0,.06);
+  border-color:rgba(232,184,0,.25);
+}
+.testi-stars{color:var(--gold);font-size:12px;letter-spacing:3px;margin-bottom:20px}
+.testi-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-style:italic;font-weight:300;
+  color:rgba(240,240,255,.8);line-height:1.8;margin-bottom:28px;
+}
+.testi-author{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.testi-av{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--gold);display:flex;align-items:center;justify-content:center;
+  font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--navy);flex-shrink:0;
+}
+.testi-name{font-size:13px;font-weight:500;color:#F0F0FF}
+.testi-role{font-size:11px;color:rgba(240,240,255,.35);margin-top:2px;letter-spacing:.5px}
+
+/*──────────────────────────────────────────────
+  PRICING
+──────────────────────────────────────────────*/
+#pricing{background:var(--cream)}
+.pricing-header{text-align:center;max-width:560px;margin:0 auto 72px}
+.pricing-header .s-tag{justify-content:center}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:rgba(0,0,0,.07)}
+.price-card{
+  background:var(--cream);padding:48px 40px;
+  position:relative;transition:all .3s;
+}
+.price-card.featured{background:var(--navy)}
+.price-card:hover:not(.featured){background:var(--cream2)}
+.pc-badge{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--navy);
+  font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:2px;
+  padding:5px 18px;border-radius:0 0 6px 6px;
+}
+.pc-plan{font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-bottom:8px}
+.pc-plan-featured{color:rgba(232,184,0,.6)}
+.pc-price{
+  font-family:'Cinzel',serif;font-size:52px;font-weight:900;
+  color:var(--navy);line-height:1;margin-bottom:4px;
+}
+.price-card.featured .pc-price{color:var(--gold)}
+.pc-price sup{font-size:22px;vertical-align:top;margin-top:10px;margin-right:2px}
+.pc-period{font-size:12px;color:var(--light);margin-bottom:32px}
+.pc-divider{width:32px;height:1px;background:var(--gold);margin-bottom:28px;opacity:.5}
+.pc-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.pc-features li{font-size:13px;color:var(--mid);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.price-card.featured .pc-features li{color:rgba(240,240,255,.65)}
+.pc-features li::before{content:'—';color:var(--gold);font-weight:700;flex-shrink:0}
+.pc-features li.no::before{content:'—';color:rgba(0,0,0,.15)}
+.price-card.featured .pc-features li.no::before{color:rgba(255,255,255,.15)}
+.pc-features li.no{color:rgba(0,0,0,.25)}
+.price-card.featured .pc-features li.no{color:rgba(240,240,255,.2)}
+.pc-btn{
+  display:block;width:100%;padding:15px;text-align:center;
+  font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;
+  border-radius:2px;border:none;cursor:pointer;font-family:'Cinzel',serif;
+  transition:all .25s;
+}
+.pc-btn.dark{background:var(--navy);color:var(--gold-lt)}
+.pc-btn.dark:hover{background:var(--gold);color:var(--navy)}
+.pc-btn.gold{background:var(--gold);color:var(--navy)}
+.pc-btn.gold:hover{background:var(--gold-lt)}
+.pc-btn.outline{background:transparent;color:rgba(240,240,255,.7);border:1px solid rgba(240,240,255,.2)}
+.pc-btn.outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/*──────────────────────────────────────────────
+  CTA BAND
+──────────────────────────────────────────────*/
+#cta{
+  background:var(--navy);padding:100px 6%;
+  text-align:center;position:relative;overflow:hidden;
+}
+#cta::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:600px;
+  background:radial-gradient(ellipse,rgba(196,97,26,.2) 0%,transparent 65%);
+  pointer-events:none;
+}
+.cta-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(232,184,0,.5);margin-bottom:24px}
+.cta-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5vw,68px);font-weight:600;color:#F0F0FF;
+  line-height:1.1;margin-bottom:24px;
+}
+.cta-title em{color:var(--gold);font-style:italic}
+.cta-sub{font-size:16px;font-weight:300;color:rgba(240,240,255,.5);margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/*──────────────────────────────────────────────
+  CONTACT
+──────────────────────────────────────────────*/
+#contact{background:var(--cream2)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:100px;align-items:start}
+.contact-left .s-body{margin-bottom:48px}
+.c-details{display:flex;flex-direction:column;gap:24px}
+.c-item{display:flex;gap:18px;align-items:flex-start}
+.c-icon{
+  width:42px;height:42px;border-radius:2px;
+  background:rgba(200,150,10,.08);border:1px solid rgba(200,150,10,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;margin-top:2px;
+}
+.c-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--light);margin-bottom:4px}
+.c-val{font-size:15px;color:var(--navy);font-weight:400}
+.contact-form{
+  background:var(--cream);border:1px solid rgba(0,0,0,.08);
+  border-radius:2px;padding:48px;
+  box-shadow:0 24px 64px rgba(0,0,0,.08);
+}
+.cf-title{font-family:'Cinzel',serif;font-size:20px;color:var(--navy);margin-bottom:32px;font-weight:700}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cf-group{margin-bottom:20px}
+.cf-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--light);margin-bottom:8px;display:block}
+.cf-input{
+  width:100%;padding:13px 16px;
+  background:var(--cream2);
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:2px;color:var(--charcoal);
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  transition:border-color .2s;outline:none;
+}
+.cf-input:focus{border-color:var(--gold)}
+textarea.cf-input{resize:vertical;min-height:110px}
+select.cf-input option{background:var(--cream)}
+.cf-submit{
+  width:100%;padding:16px;
+  background:var(--navy);color:var(--gold-lt);
+  border:none;border-radius:2px;
+  font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:3px;
+  cursor:pointer;transition:all .25s;margin-top:4px;
+}
+.cf-submit:hover{background:var(--gold);color:var(--navy);box-shadow:0 8px 24px rgba(200,150,10,.3)}
+.cf-success{
+  display:none;margin-top:16px;padding:14px;border-radius:2px;
+  background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.3);
+  color:#2d9e5a;font-size:13px;text-align:center;
+}
+
+/*──────────────────────────────────────────────
+  FOOTER
+──────────────────────────────────────────────*/
+footer{background:var(--navy);padding:72px 6% 32px;border-top:1px solid rgba(232,184,0,.08)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px}
+.f-logo{font-family:'Cinzel',serif;font-size:20px;font-weight:900;color:var(--gold);letter-spacing:2px;margin-bottom:14px}
+.f-tagline{font-size:13px;font-weight:300;color:rgba(240,240,255,.35);line-height:1.7;max-width:240px;margin-bottom:28px}
+.f-social{display:flex;gap:10px}
+.f-soc{
+  width:34px;height:34px;border-radius:4px;
+  background:rgba(232,184,0,.08);border:1px solid rgba(232,184,0,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:rgba(232,184,0,.6);
+  transition:all .2s;font-family:'Cinzel',serif;font-weight:700;
+}
+.f-soc:hover{background:var(--gold);color:var(--navy)}
+.f-col-title{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:rgba(232,184,0,.5);margin-bottom:18px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-links a{font-size:12px;color:rgba(240,240,255,.3);transition:color .2s;letter-spacing:.5px}
+.f-links a:hover{color:var(--gold)}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,.05);
+  font-size:11px;color:rgba(240,240,255,.2);letter-spacing:.5px;
+}
+.footer-bottom span{color:rgba(232,184,0,.4)}
+
+/*──────────────────────────────────────────────
+  ANIMATIONS
+──────────────────────────────────────────────*/
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
+.reveal.up{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .8s ease,transform .8s ease}
+.reveal-left.up{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .8s ease,transform .8s ease}
+.reveal-right.up{opacity:1;transform:translateX(0)}
+
+/*──────────────────────────────────────────────
+  RESPONSIVE
+──────────────────────────────────────────────*/
+@media(max-width:1100px){
+  #home{grid-template-columns:1fr}
+  .hero-left{min-height:60vh;padding:80px 6% 60px}
+  .hero-right{padding:60px 6%;min-height:auto}
+  .about-wrap{grid-template-columns:1fr;gap:60px}
+  .process-steps{grid-template-columns:1fr 1fr;gap:2px}
+  .ps-arrow{display:none}
+  .port-item:nth-child(1){grid-column:span 12}
+  .port-item:nth-child(2),.port-item:nth-child(3){grid-column:span 6}
+  .port-item:nth-child(4),.port-item:nth-child(5),.port-item:nth-child(6){grid-column:span 4}
+  .pricing-grid{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr;gap:60px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:768px){
+  nav{padding:16px 5%}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  section{padding:80px 5%}
+  .services-intro{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .port-grid{grid-template-columns:1fr}
+  .port-item{grid-column:span 1!important;grid-row:span 1!important}
+  .port-item:nth-child(1) .port-thumb{min-height:220px}
+  .cf-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center}
+  .contact-form{padding:28px}
+  .hero-proof{gap:24px;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-mark"></div>
+    <span class="nav-wordmark">KAT<span> NICHOLAS</span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">BOOK A CALL</a>
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="#home" onclick="toggleMenu()">Home</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#portfolio" onclick="toggleMenu()">Work</a>
+  <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- ── HERO ─────────────────────────────────────────── -->
+<section id="home">
+  <div class="hero-left reveal-left">
+    <div class="hero-left-bg"></div>
+    <div class="hero-brand-mark">
+      <div class="hbm-ring">
+        <img src="profile.JPG" alt="Kat Nicholas" class="hero-photo"/>
+        <div class="hbm-inner">
+          <div class="hbm-kat">KAT</div>
+          <div class="hbm-nicholas">NICHOLAS</div>
+        </div>
+      </div>
+      <div class="hbm-tag">Video Editing Studio</div>
+      <div class="hbm-line"></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-content reveal-right">
+      <div class="hero-kicker">Coaches &amp; Consultants</div>
+      <h1 class="hero-h1">
+        Your content should feel as<br>
+        <em>premium</em> as your offer.
+      </h1>
+      <p class="hero-sub">
+        I create cinematic, story-driven video content that positions you as the authority,
+        attracts premium clients, and makes your brand impossible to ignore.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-dark">BOOK A FREE CALL</a>
+        <a href="#portfolio" class="btn-ghost"> MY WORK</a>
+      </div>
+      <div class="hero-proof">
+        <div class="proof-item">
+          <div class="proof-num">50+</div>
+          <div class="proof-label">Clients Served</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">500+</div>
+          <div class="proof-label">Videos Edited</div>
+        </div>
+        <div class="proof-item">
+          <div class="proof-num">5.0★</div>
+          <div class="proof-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TICKER ───────────────────────────────────────── -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Brand Story Reels <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Short Form Content <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Podcast Edits <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Course Videos <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Testimonial Reels <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Launch Videos <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Cinematic Grading <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Premium Editing <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Brand Story Reels <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Short Form Content <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Podcast Edits <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Course Videos <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Testimonial Reels <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Launch Videos <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Cinematic Grading <span class="ticker-dot">✦</span></span>
+    <span class="ticker-item">Premium Editing <span class="ticker-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- ── ABOUT ────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-visual reveal-left">
+      <div class="about-stripe"></div>
+      <div class="about-photo">
+        <!-- EDIT: Replace this div with <img src="your-photo.jpg" alt="Kat Nicholas" style="width:100%;height:100%;object-fit:cover;"> -->
+         <img src="profile.JPG" alt="kat Nicholas" srcset="" style="width:100%;height:100%;object-fit:cover;">
+        <div class="ap-kat">KAT</div>
+        <div class="ap-label">Nicholas</div>
+      </div>
+      <div class="about-badge">
+        <div class="ab-num">5+</div>
+        <div class="ab-label">YEARS EDITING</div>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="s-tag">About Me</div>
+      <h2 class="s-title">The editor behind the <em>brand.</em></h2>
+      <div class="gold-rule"></div>
+      <p>Hey, I'm Kat Nicholas — a video editor who specialises in helping coaches and consultants create premium, cinematic content that attracts high-ticket clients and builds undeniable authority online.</p>
+      <p>I know what it feels like to have a powerful message that isn't landing — because your content doesn't match the quality of your expertise. That's exactly why I exist.</p>
+      <p>Every edit I deliver is intentional, story-driven, and built to move people — from scroll to sale.</p>
+      <div class="about-pills">
+        <span class="pill">Cinematic Editing</span>
+        <span class="pill">Story-Driven</span>
+        <span class="pill">48hr Turnaround</span>
+        <span class="pill">Unlimited Revisions</span>
+        <span class="pill">Brand Consistency</span>
+        <span class="pill">Premium Quality</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ───────────────────────────────────────── -->
+<section id="process">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:0;max-width:900px">
+    <div class="reveal">
+      <div class="s-tag">How It Works</div>
+      <h2 class="s-title">Simple process. <em>Exceptional results.</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="s-body">From first contact to final delivery, I've made the entire experience seamless — so you can stay focused on coaching, not chasing files.</p>
+    </div>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="ps-num">01</div>
+      <div class="ps-title">Discovery Call</div>
+      <div class="ps-body">We get on a free 30-min call to understand your brand, goals, and what kind of content will move the needle for your business.</div>
+      <div class="ps-arrow">→</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="ps-num">02</div>
+      <div class="ps-title">You Send Footage</div>
+      <div class="ps-body">You record and upload your raw footage via a shared Google Drive or WeTransfer link. No complicated systems or tech headaches.</div>
+      <div class="ps-arrow">→</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="ps-num">03</div>
+      <div class="ps-title">I Edit & Deliver</div>
+      <div class="ps-body">I edit, colour grade, add music, captions, and your brand elements — then deliver your video within 48–72 hours via a private link.</div>
+      <div class="ps-arrow">→</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="ps-num">04</div>
+      <div class="ps-title">Review & Publish</div>
+      <div class="ps-body">You review, request any tweaks (unlimited revisions included), approve, and publish. Then watch your audience respond differently.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ──────────────────────────────────────── -->
+<section id="services">
+  <div class="services-intro">
+    <div class="reveal">
+      <div class="s-tag">What I Offer</div>
+      <h2 class="s-title">Services built for <em>serious brands.</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="s-body">Every service is designed to make your content feel as premium as your offer — and perform like it too.</p>
+      <a href="#contact" class="btn-dark" style="display:inline-block;margin-top:24px;">GET STARTED</a>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">🎬</div>
+      <div class="svc-title">Brand Story Reels</div>
+      <p class="svc-body">Cinematic brand videos that tell your story, showcase your expertise, and convert cold traffic into warm leads on autopilot.</p>
+      <div class="svc-link">Learn More →</div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">📱</div>
+      <div class="svc-title">Short Form Content</div>
+      <p class="svc-body">Scroll-stopping Reels, TikToks and Shorts with hook-first editing strategy that grow your audience and build authority.</p>
+      <div class="svc-link">Learn More →</div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">🎤</div>
+      <div class="svc-title">Podcast & Interview Edits</div>
+      <p class="svc-body">Transform long-form recordings into polished, professional content for YouTube, Spotify, and your website.</p>
+      <div class="svc-link">Learn More →</div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">04</div>
+      <div class="svc-icon">💼</div>
+      <div class="svc-title">Course & Training Videos</div>
+      <p class="svc-body">Professional course content that keeps students engaged, builds your authority, and justifies your premium pricing.</p>
+      <div class="svc-link">Learn More →</div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">05</div>
+      <div class="svc-icon">🌟</div>
+      <div class="svc-title">Testimonial Videos</div>
+      <p class="svc-body">Turn client wins into powerful social proof videos that sell for you while you sleep — the most underused asset in coaching.</p>
+      <div class="svc-link">Learn More →</div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">06</div>
+      <div class="svc-icon">🚀</div>
+      <div class="svc-title">Launch Campaign Videos</div>
+      <p class="svc-body">High-converting video assets for your next offer launch — from VSLs to countdown ads that create urgency and drive sales.</p>
+      <div class="svc-link">Learn More →</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ─────────────────────────────────────── -->
+<section id="portfolio">
+  <div class="port-intro">
+    <div class="reveal">
+      <div class="s-tag">My Work</div>
+      <h2 class="s-title">Edits that speak for <em>themselves.</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="s-body" style="max-width:360px;">Every project is built with the same intention — cinematic quality, clear story, real results.</p>
+      <!-- EDIT: Add your real YouTube/Vimeo links to the portfolio items below -->
+    </div>
+  </div>
+  <div class="port-grid">
+    <div class="port-item reveal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#1A0A2E 0%,#2A1245 50%,#0D0618 100%)"></div> -->
+          <video class="port-video" autoplay muted loop playsinline>
+            <source src="VA podcast short AD.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Brand Story · 2 min</div>
+          <div class="port-title">Executive Coaching Brand Story Reel</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#1A0A2E 100%)"></div> -->
+         <video class="port-video" autoplay muted loop playsinline>
+            <source src="Copy of jess 1.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Short Form · Series of 5</div>
+          <div class="port-title">Business Coach Instagram Reels</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#2A1245 0%,#111827 100%)"></div> -->
+         <video class="port-video" autoplay muted loop playsinline>
+            <source src="Copy of positivity.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Podcast · 45 min</div>
+          <div class="port-title">Sales Consultant Podcast Series</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(160deg,#1A0A2E 0%,#0D0618 100%)"></div> -->
+          <video class="port-video" autoplay muted loop playsinline>
+            <source src="Copy of Food 2 (1).mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Course · 12 modules</div>
+          <div class="port-title">Life Coach Online Course</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
+          <video class="port-video" autoplay muted loop playsinline>
+            <source src="Copy of engagment.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Testimonials · 90 sec</div>
+          <div class="port-title">Mindset Coach Testimonial Reel</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
+          <video class="port-video" autoplay muted loop playsinline>
+            <source src="Copy of xcourse launch.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Launch · VSL</div>
+          <div class="port-title">High-Ticket Offer Launch Video</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────── -->
+<section id="testimonials">
+  <div style="text-align:center;max-width:540px;margin:0 auto 72px;" class="reveal">
+    <div class="s-tag" style="justify-content:center;">Client Love</div>
+    <h2 class="s-title" style="color:#F0F0FF;">What coaches are <em>saying.</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Kat completely transformed my content. My engagement tripled within the first month. He doesn't just edit — He understands your brand and brings it to life."</p>
+      <div class="testi-author">
+        <div class="testi-av">S</div>
+        <div>
+          <div class="testi-name">Annelise MC.</div>
+          <div class="testi-role">Executive Business Coach</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card featured reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"I booked 4 discovery calls within 48 hours of posting my first brand reel. The ROI is insane. My content now looks like it belongs on Netflix."</p>
+      <div class="testi-author">
+        <div class="testi-av">J</div>
+        <div>
+          <div class="testi-name">Nat Larcos.</div>
+          <div class="testi-role">Travel Creator</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Working with Kat is effortless. My clients consistently tell me my videos are what made them trust me enough to invest in my high-ticket programme."</p>
+      <div class="testi-author">
+        <div class="testi-av">A</div>
+        <div>
+          <div class="testi-name">Jess Whatsman.</div>
+          <div class="testi-role">Life Coach & Business owner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ───────────────────────────────────────── -->
+<section id="pricing">
+  <div class="pricing-header reveal">
+    <div class="s-tag">Investment</div>
+    <h2 class="s-title">Simple, transparent <em>pricing.</em></h2>
+    <p class="s-body" style="margin:0 auto;">Choose the plan that matches where your business is — and where it's going.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <div class="pc-plan">Starter</div>
+      <div class="pc-price"><sup>$</sup>497</div>
+      <div class="pc-period">per month · 4 videos</div>
+      <div class="pc-divider"></div>
+      <ul class="pc-features">
+        <li>4 short-form videos/month</li>
+        <li>Basic colour grading</li>
+        <li>Captions & subtitles</li>
+        <li>2 revisions per video</li>
+        <li>5-day turnaround</li>
+        <li class="no">Brand story reel</li>
+        <li class="no">Priority support</li>
+      </ul>
+      <button class="pc-btn dark" onclick="scrollTo('contact')">GET STARTED</button>
+    </div>
+    <div class="price-card featured reveal">
+      <div class="pc-badge">MOST POPULAR</div>
+      <div class="pc-plan pc-plan-featured">Professional</div>
+      <div class="pc-price"><sup>$</sup>997</div>
+      <div class="pc-period" style="color:rgba(240,240,255,.35)">per month · 10 videos</div>
+      <div class="pc-divider"></div>
+      <ul class="pc-features">
+        <li>10 short-form videos/month</li>
+        <li>Cinematic colour grading</li>
+        <li>Captions, graphics & music</li>
+        <li>Unlimited revisions</li>
+        <li>48-hour turnaround</li>
+        <li>1 brand story reel/month</li>
+        <li class="no">Priority support</li>
+      </ul>
+      <button class="pc-btn gold" onclick="scrollTo('contact')">BOOK A CALL</button>
+    </div>
+    <div class="price-card reveal">
+      <div class="pc-plan">Elite</div>
+      <div class="pc-price"><sup>$</sup>1,997</div>
+      <div class="pc-period">per month · unlimited</div>
+      <div class="pc-divider"></div>
+      <ul class="pc-features">
+        <li>Unlimited video edits</li>
+        <li>Premium cinematic treatment</li>
+        <li>Full brand kit integration</li>
+        <li>Unlimited revisions</li>
+        <li>24-hour turnaround</li>
+        <li>2 brand story reels/month</li>
+        <li>Dedicated priority support</li>
+      </ul>
+      <button class="pc-btn dark" onclick="scrollTo('contact')">APPLY NOW</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ──────────────────────────────────────── -->
+<section id="cta">
+  <div class="cta-eyebrow">Ready to elevate your brand?</div>
+  <h2 class="cta-title reveal">Stop letting your content<br><em>undersell</em> your expertise.</h2>
+  <p class="cta-sub reveal">Book a free 30-minute discovery call and let's map out exactly what your content needs to attract premium clients.</p>
+  <div class="cta-actions reveal">
+    <a href="#contact" class="btn-dark">BOOK A FREE CALL</a>
+    <a href="#portfolio" class="btn-ghost" style="color:rgba(240,240,255,.6);border-color:rgba(240,240,255,.2);">VIEW MY WORK</a>
+  </div>
+</section>
+
+<!-- ── CONTACT ───────────────────────────────────────── -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left reveal-left">
+      <div class="s-tag">Get In Touch</div>
+      <h2 class="s-title">Let's build something <em>powerful.</em></h2>
+      <div class="gold-rule"></div>
+      <p class="s-body" style="margin-bottom:48px;">Ready to make your content match the quality of your coaching? Fill in the form and I'll get back to you within 24 hours to book your free discovery call.</p>
+      <div class="c-details">
+        <div class="c-item">
+          <div class="c-icon"><i class="fa-solid fa-envelope" style="color: rgb(47, 85, 116);"></i></div>
+          <div>
+            <div class="c-label">Email</div>
+            <!-- EDIT: Replace with your real email -->
+            <div class="c-val">hello@katnicholas.com</div>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fa-brands fa-square-instagram" style="color: rgb(197, 91, 175);"></i></div>
+          <div>
+            <div class="c-label">Instagram</div>
+            <!-- EDIT: Replace with your real handle -->
+            <div class="c-val"><a href="https://www.instagram.com/itskatnicholas/" target="_blank">instagram.com/itskatnicholas</a></div>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fa-brands fa-square-linkedin" style="color: rgb(116, 192, 252);"></i></div>
+          <div>
+            <div class="c-label">LinkedIn</div>
+            <!-- EDIT: Replace with your real LinkedIn -->
+            <div class="c-val"><a href="https://www.linkedin.com/in/kat-nicholas/" target="_blank">linkedin.com/in/kat-nicholas</a></div>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fa-solid fa-clock" style="color: rgb(17, 53, 82);"></i></div>
+          <div>
+            <div class="c-label">Response Time</div>
+            <div class="c-val">Within 24 hours</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal-right">
+      <div class="cf-title">Book Your Free Call</div>
+      <div class="cf-row">
+        <div class="cf-group">
+          <label class="cf-label">First Name</label>
+          <input class="cf-input" id="fn" type="text" placeholder="Your first name"/>
+        </div>
+        <div class="cf-group">
+          <label class="cf-label">Last Name</label>
+          <input class="cf-input" id="ln" type="text" placeholder="Your last name"/>
+        </div>
+      </div>
+      <div class="cf-group">
+        <label class="cf-label">Email Address</label>
+        <input class="cf-input" id="em" type="email" placeholder="your@email.com"/>
+      </div>
+      <div class="cf-group">
+        <label class="cf-label">What do you do?</label>
+        <select class="cf-input" id="role">
+          <option value="">Select your role</option>
+          <option>Business Coach</option>
+          <option>Life Coach</option>
+          <option>Sales Consultant</option>
+          <option>Marketing Consultant</option>
+          <option>Mindset Coach</option>
+          <option>Other Coach / Consultant</option>
+        </select>
+      </div>
+      <div class="cf-group">
+        <label class="cf-label">Service you're interested in</label>
+        <select class="cf-input" id="svc">
+          <option value="">Select a service</option>
+          <option>Brand Story Reel</option>
+          <option>Short Form Content</option>
+          <option>Podcast & Interview Edits</option>
+          <option>Course & Training Videos</option>
+          <option>Testimonial Videos</option>
+          <option>Launch Campaign Videos</option>
+          <option>Monthly Retainer Package</option>
+        </select>
+      </div>
+      <div class="cf-group">
+        <label class="cf-label">Tell me about your brand</label>
+        <textarea class="cf-input" id="msg" placeholder="What do you sell, who do you serve, and what's your biggest content challenge right now?"></textarea>
+      </div>
+      <button class="cf-submit" onclick="handleSubmit()">SEND MESSAGE ✦</button>
+      <div class="cf-success" id="cfSuccess">✦ Message received! I'll be in touch within 24 hours.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-logo">KAT NICHOLAS</div>
+      <p class="f-tagline">Premium video editing for coaches and consultants who want their brand to look as powerful as their message.</p>
+      <div class="f-social">
+        <!-- EDIT: Add your real social URLs -->
+        <a href="https://www.instagram.com/itskatnicholas/"class="f-soc" title="Instagram">IG</a>
+        <a href="https://www.linkedin.com/in/kat-nicholas/" class="f-soc" title="LinkedIn">LI</a>
+        <a href="KatNicholas-z6m" class="f-soc" title="YouTube">YT</a>
+        <a href="#" class="f-soc" title="TikTok">TK</a>
+      </div>
+    </div>
+    <div>
+      <div class="f-col-title">Navigation</div>
+      <ul class="f-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Services</div>
+      <ul class="f-links">
+        <li><a href="#services">Brand Story Reels</a></li>
+        <li><a href="#services">Short Form Content</a></li>
+        <li><a href="#services">Podcast Edits</a></li>
+        <li><a href="#services">Course Videos</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Contact</div>
+      <ul class="f-links">
+        <!-- EDIT: Replace with your real email -->
+        <li><a href="mailto:hello@katnicholas.com">hello@katnicholas.com</a></li>
+        <li><a href="#contact">Book a Free Call</a></li>
+        <li><a href="#pricing">View Pricing</a></li>
+        <li><a href="#testimonials">Client Reviews</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 <span>Kat Nicholas</span>. All rights reserved.</span>
+    <span>Built for coaches &amp; consultants who mean business.</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
+  // Active nav link
+  const secs=document.querySelectorAll('section[id]');
+  const links=document.querySelectorAll('.nav-links a');
+  let cur='';
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  links.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur)});
+});
+
+// Mobile menu
+function toggleMenu(){
+  document.getElementById('mobNav').classList.toggle('open');
+}
+
+// Scroll reveal
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting)setTimeout(()=>e.target.classList.add('up'),i*70);
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>io.observe(el));
+
+// Scroll to section
+function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+// Form
+function handleSubmit(){
+  const fn=document.getElementById('fn').value;
+  const em=document.getElementById('em').value;
+  const role=document.getElementById('role').value;
+  if(!fn||!em||!role){alert('Please fill in your name, email, and role.');return;}
+  document.getElementById('cfSuccess').style.display='block';
+  // EDIT: Connect a real form handler here
+  // Option 1 – Formspree: fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',body:new FormData(form)})
+  // Option 2 – EmailJS: emailjs.send('service_id','template_id',{name:fn,email:em})
+}
+</script>
+</body>
+</html>
