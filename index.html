@@ -1156,25 +1156,25 @@ footer{background:var(--navy);padding:72px 6% 32px;border-top:1px solid rgba(232
         </div>
       </div>
     </div>
-    <div class="contact-form reveal-right" action="https://formspree.io/f/mdabbler" method="POST">
+    <form class="contact-form reveal-right" action="https://formspree.io/f/mdabbler" method="POST">
       <div class="cf-title">Book Your Free Call</div>
       <div class="cf-row">
         <div class="cf-group">
           <label class="cf-label">First Name</label>
-          <input class="cf-input" id="fn" type="text" placeholder="Your first name"/>
+          <input class="cf-input" id="fn" name="firstName" type="text" placeholder="Your first name"/>
         </div>
         <div class="cf-group">
           <label class="cf-label">Last Name</label>
-          <input class="cf-input" id="ln" type="text" placeholder="Your last name"/>
+          <input class="cf-input" id="ln" name="lastName" type="text"/>
         </div>
       </div>
       <div class="cf-group">
         <label class="cf-label">Email Address</label>
-        <input class="cf-input" id="em" type="email" placeholder="your@email.com"/>
+        <input class="cf-input" id="em" name="email" type="email"/>
       </div>
       <div class="cf-group">
         <label class="cf-label">What do you do?</label>
-        <select class="cf-input" id="role">
+        <select class="cf-input" id="role" name="role">
           <option value="">Select your role</option>
           <option>Business Coach</option>
           <option>Life Coach</option>
@@ -1186,7 +1186,7 @@ footer{background:var(--navy);padding:72px 6% 32px;border-top:1px solid rgba(232
       </div>
       <div class="cf-group">
         <label class="cf-label">Service you're interested in</label>
-        <select class="cf-input" id="svc">
+        <select class="cf-input" id="svc" onchange="toggleOtherField()">
           <option value="">Select a service</option>
           <option>Brand Story Reel</option>
           <option>Short Form Content</option>
@@ -1195,15 +1195,22 @@ footer{background:var(--navy);padding:72px 6% 32px;border-top:1px solid rgba(232
           <option>Testimonial Videos</option>
           <option>Launch Campaign Videos</option>
           <option>Monthly Retainer Package</option>
+          <option value="Other">Other</option>
         </select>
-      </div>
+          <input 
+        type="text" 
+        id="otherService" 
+        class="cf-input" 
+        placeholder="Type your service here"
+        style="display:none; margin-top:10px; width:100%;"
+    >
       <div class="cf-group">
         <label class="cf-label">Tell me about your brand</label>
         <textarea class="cf-input" id="msg" placeholder="What do you sell, who do you serve, and what's your biggest content challenge right now?"></textarea>
       </div>
-      <button class="cf-submit" onclick="handleSubmit()">SEND MESSAGE ✦</button>
+      <button type="submit" class="cf-submit">SEND MESSAGE ✦</button>
       <div class="cf-success" id="cfSuccess">✦ Message received! I'll be in touch within 24 hours.</div>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -1294,6 +1301,18 @@ function handleSubmit(){
   // EDIT: Connect a real form handler here
   // Option 1 – Formspree: fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',body:new FormData(form)})
   // Option 2 – EmailJS: emailjs.send('service_id','template_id',{name:fn,email:em})
+}
+</script>
+<script>
+function toggleOtherField() {
+    const service = document.getElementById("svc").value;
+    const otherField = document.getElementById("otherService");
+
+    if (service === "Other") {
+        otherField.style.display = "block";
+    } else {
+        otherField.style.display = "none";
+    }
 }
 </script>
 </body>
