@@ -649,6 +649,31 @@ footer{background:var(--navy);padding:72px 6% 32px;border-top:1px solid rgba(232
 .reveal-left.up{opacity:1;transform:translateX(0)}
 .reveal-right{opacity:0;transform:translateX(32px);transition:opacity .8s ease,transform .8s ease}
 .reveal-right.up{opacity:1;transform:translateX(0)}
+/*──────────────────────────────────────────────
+  WHATSAPP
+──────────────────────────────────────────────*/
+.whatsapp-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+background:#25D366;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+z-index:1000;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.1);
+transition:0.3s;
+}
 
 /*──────────────────────────────────────────────
   RESPONSIVE
@@ -1324,5 +1349,8 @@ function toggleOtherField() {
     }
 }
 </script>
+<a href="https://wa.me/256776192407" class="whatsapp-btn" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
 </body>
 </html>
