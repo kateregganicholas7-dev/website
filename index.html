@@ -409,41 +409,28 @@ section{padding:110px 6%}
   display:grid;
   grid-template-columns:repeat(12,1fr);
   grid-template-rows:auto;
-  gap:16px;
+  gap:12px;
 }
 .port-item{
   border-radius:2px;overflow:hidden;
   background:var(--navy);
   position:relative;cursor:pointer;
   transition:transform .3s,box-shadow .3s;
+  grid-column: span 3;
 }
-.port-item:hover{transform:scale(1.015);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+/* .port-item:hover{transform:scale(1.015);box-shadow:0 20px 60px rgba(0,0,0,.2)}
 .port-item:nth-child(1){grid-column:span 7;grid-row:span 2}
 .port-item:nth-child(2){grid-column:span 5}
 .port-item:nth-child(3){grid-column:span 5}
 .port-item:nth-child(4){grid-column:span 4}
 .port-item:nth-child(5){grid-column:span 4}
-.port-item:nth-child(6){grid-column:span 4}
-.port-thumb{
-  width:100%;aspect-ratio:16/9;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.port-thumb{
-aspect-ratio:4/5;
-overflow:hidden;
-}
+.port-item:nth-child(6){grid-column:span 4} */
 
-.port-video{
-width:100%;
-height:100%;
-object-fit:cover;
-}
 .port-thumb{
 position:relative;
 width:100%;
-
-
+aspect-ratio:9/16;
+overflow:hidden;
 border-radius:20px;
 background:#111;
 }
@@ -987,7 +974,7 @@ transition:0.3s;
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#1A0A2E 0%,#2A1245 50%,#0D0618 100%)"></div> -->
-          <video class="port-video" autoplay muted loop playsinline>
+          <video class="port-video" autoplay loop playsinline>
             <source src="VA podcast short AD.mp4" type="video/mp4"> </video>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
@@ -999,7 +986,7 @@ transition:0.3s;
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#1A0A2E 100%)"></div> -->
-         <video class="port-video" autoplay muted loop playsinline>
+         <video class="port-video" autoplay loop playsinline>
             <source src="Copy of jess 1.mp4" type="video/mp4"> </video>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
@@ -1011,7 +998,7 @@ transition:0.3s;
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#2A1245 0%,#111827 100%)"></div> -->
-         <video class="port-video" autoplay muted loop playsinline>
+         <video class="port-video" autoplay loop playsinline>
             <source src="Copy of positivity.mp4" type="video/mp4"> </video>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
@@ -1023,7 +1010,7 @@ transition:0.3s;
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(160deg,#1A0A2E 0%,#0D0618 100%)"></div> -->
-          <video class="port-video" autoplay muted loop playsinline>
+          <video class="port-video" autoplay loop playsinline>
             <source src="Copy of Food 2 (1).mp4" type="video/mp4"> </video>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
@@ -1035,7 +1022,7 @@ transition:0.3s;
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
-          <video class="port-video" autoplay muted loop playsinline>
+          <video class="port-video" autoplay loop playsinline>
             <source src="Copy of engagment.mp4" type="video/mp4"> </video>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
@@ -1046,8 +1033,32 @@ transition:0.3s;
     </div>
     <div class="port-item reveal">
       <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
+          <video class="port-video" autoplay loop playsinline>
+            <source src="Lead thoughts.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Testimonials · 90 sec</div>
+          <div class="port-title">Mindset Coach Testimonial Reel</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
+          <video class="port-video" autoplay loop playsinline>
+            <source src="Copy of not brand.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <div class="port-tag">Testimonials · 90 sec</div>
+          <div class="port-title">Mindset Coach Testimonial Reel</div>
+        </div>
+      </div>
+    </div>
+    <div class="port-item reveal">
+      <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
-          <video class="port-video" autoplay muted loop playsinline>
+          <video class="port-video" autoplay loop playsinline>
             <source src="Copy of xcourse launch.mp4" type="video/mp4"> </video>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
@@ -1373,9 +1384,40 @@ function toggleOtherField() {
         otherField.style.display = "none";
     }
 }
+
+
 </script>
 <a href="https://wa.me/256776192407" class="whatsapp-btn" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
+<script>
+document.querySelectorAll('.port-video').forEach(video => {
+
+video.muted = true;
+
+video.parentElement.addEventListener('mouseenter', function () {
+
+document.querySelectorAll('.port-video').forEach(v => {
+v.pause();
+v.currentTime = 0;
+v.muted = true;
+});
+
+video.muted = false;
+video.play();
+
+});
+
+video.parentElement.addEventListener('mouseleave', function () {
+
+video.pause();
+video.currentTime = 0;
+video.muted = true;
+
+});
+
+});
+</script>
+</script>
 </body>
 </html>
