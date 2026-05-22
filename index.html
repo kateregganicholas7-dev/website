@@ -418,7 +418,19 @@ section{padding:110px 6%}
   transition:transform .3s,box-shadow .3s;
   grid-column: span 3;
 }
-/* .port-item:hover{transform:scale(1.015);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.port-item::after{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.30);
+transition:.3s;
+pointer-events:none;
+}
+.port-item:hover{transform:scale(1.015);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.port-item:hover::after{
+opacity:0;
+}
+/* 
 .port-item:nth-child(1){grid-column:span 7;grid-row:span 2}
 .port-item:nth-child(2){grid-column:span 5}
 .port-item:nth-child(3){grid-column:span 5}
@@ -449,7 +461,7 @@ display:block;
   transition:background .3s;
   display:flex;align-items:center;justify-content:center;
 }
-.port-item:hover .port-overlay{background:rgba(0,0,0,.4)}
+/* .port-item:hover .port-overlay{background:rgba(0,0,0,.4)} */
 .play-ring{
   width:56px;height:56px;border-radius:50%;
   border:2px solid var(--gold);
@@ -1398,9 +1410,12 @@ video.muted = true;
 video.parentElement.addEventListener('mouseenter', function () {
 
 document.querySelectorAll('.port-video').forEach(v => {
+
+if(v !== video){
 v.pause();
-v.currentTime = 0;
 v.muted = true;
+}
+
 });
 
 video.muted = false;
@@ -1410,8 +1425,6 @@ video.play();
 
 video.parentElement.addEventListener('mouseleave', function () {
 
-video.pause();
-video.currentTime = 0;
 video.muted = true;
 
 });
