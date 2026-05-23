@@ -306,12 +306,13 @@ section{padding:110px 6%}
   ABOUT
 ──────────────────────────────────────────────*/
 #about{background:var(--cream2)}
-.about-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:100px;align-items:center}
-.about-visual{position:relative}
+.about-wrap{display:grid;grid-template-columns:0.8fr 1fr;gap:10px;align-items:center}
+.about-visual{position:relative; display:flex;
+    justify-content:flex-end;}
 .about-photo{
-  width:100%;aspect-ratio:4/5;
+  width:70%;aspect-ratio:4/5;max-width: 400px;gap:2px;
   background:linear-gradient(160deg,var(--navy) 0%,var(--purple) 100%);
-  border-radius:2px;display:flex;align-items:center;justify-content:center;
+  border-radius:20px;display:flex;align-items:center;justify-content:center;
   flex-direction:column;gap:8px;position:relative;overflow:hidden;
 }
 .about-photo::before{
@@ -321,14 +322,14 @@ section{padding:110px 6%}
 .ap-kat{font-family:'Cinzel',serif;font-size:80px;font-weight:900;color:var(--gold);position:relative;z-index:1;text-shadow:0 0 40px rgba(196,97,26,.5)}
 .ap-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(240,240,255,.3);position:relative;z-index:1}
 .about-badge{
-  position:absolute;bottom:-20px;right:-20px;
+  position:absolute;bottom:2px;right:4px;
   background:var(--navy);border:2px solid var(--gold);
-  padding:20px 24px;border-radius:2px;
+  padding:20px 24px;border-radius:2px; z-index: 5;
 }
 .ab-num{font-family:'Cinzel',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
 .ab-label{font-size:10px;color:rgba(240,240,255,.5);letter-spacing:2px;margin-top:4px}
 .about-stripe{
-  position:absolute;top:24px;left:-16px;
+  position:absolute;top:24px;left:-25px;
   width:4px;height:80px;
   background:linear-gradient(to bottom,var(--gold),var(--orange));
   border-radius:2px;
@@ -340,6 +341,218 @@ section{padding:110px 6%}
   padding:8px 18px;border-radius:2px;
   border:1px solid rgba(200,150,10,.3);color:var(--gold-dk);
   background:rgba(200,150,10,.06);
+}
+
+/*──────────────────────────────────────────────
+  TESTIMONIAL
+──────────────────────────────────────────────*/
+
+.testimonials-section{
+    padding:120px 5%;
+}
+
+.testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.testimonial-card{
+    background:linear-gradient(180deg,#0B1220,#0A1020);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    min-height: 720px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(212,166,42,.35);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+/* VIDEO */
+.testimonial-video{
+     position:relative;
+    width:100%;
+    aspect-ratio:9/16;
+    max-height:500px;
+    overflow:hidden;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 340px;
+}
+.testimonial-video{
+    height:420px;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.t-video{
+    height:100%;
+    width:auto;
+    object-fit:contain;
+    display:block;
+}
+
+.testimonial-card:hover .t-video{
+    transform:scale(1.04);
+    filter:brightness(1);
+}
+
+/* PLAY BUTTON */
+.play-btn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:white;
+    color:#6D28D9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:bold;
+    pointer-events:none;
+}
+.testimonials-section{
+    padding:120px 5%;
+}
+
+.testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(3,400px);
+    justify-content: center;
+    gap:24px;
+}
+
+.testimonial-card{
+    background:linear-gradient(180deg,#0B1220,#0A1020);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    min-height: 720px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(212,166,42,.35);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+/* VIDEO */
+.testimonial-video{
+     position:relative;
+    width:100%;
+    aspect-ratio:9/16;
+    max-height:500px;
+    overflow:hidden;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.t-video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position: center top;
+    display:block;
+    filter:brightness(.72);
+    transition:.5s;
+}
+
+.testimonial-card:hover .t-video{
+    transform:scale(1.04);
+    filter:brightness(1);
+}
+
+/* PLAY BUTTON */
+.play-btn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:white;
+    color:#6D28D9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:bold;
+    pointer-events:none;
+}
+/* CONTENT */
+.testimonial-content{
+    padding:28px;
+}
+
+.stars{
+    color:#D4A62A;
+    letter-spacing:4px;
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.t-text{
+    color:#EDEDED;
+    font-size:16px;
+    line-height:1.5;
+    font-style:italic;
+    margin-bottom:28px;
+}
+
+/* PERSON */
+.t-person{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.avatar{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:#D4A62A;
+    color:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+.t-name{
+    color:#fff;
+    font-weight:600;
+}
+
+.t-role{
+    color:#7F8692;
+    font-size:14px;
+    margin-top:4px;
 }
 
 /*──────────────────────────────────────────────
@@ -376,6 +589,12 @@ section{padding:110px 6%}
   color:rgba(232,184,0,.4);font-size:12px;z-index:2;
 }
 .process-step:last-child .ps-arrow{display:none}
+.process-top{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
+}
 
 /*──────────────────────────────────────────────
   SERVICES
@@ -412,7 +631,7 @@ section{padding:110px 6%}
   gap:12px;
 }
 .port-item{
-  border-radius:2px;overflow:hidden;
+  border-radius:20px;overflow:hidden;
   background:var(--navy);
   position:relative;cursor:pointer;
   transition:transform .3s,box-shadow .3s;
@@ -429,6 +648,13 @@ pointer-events:none;
 .port-item:hover{transform:scale(1.015);box-shadow:0 20px 60px rgba(0,0,0,.2)}
 .port-item:hover::after{
 opacity:0;
+}
+.port-video{
+transition:transform .6s ease;
+}
+
+.port-item:hover .port-video{
+transform:scale(1.06);
 }
 /* 
 .port-item:nth-child(1){grid-column:span 7;grid-row:span 2}
@@ -733,6 +959,17 @@ transition:0.3s;
   .footer-bottom{flex-direction:column;gap:10px;text-align:center}
   .contact-form{padding:28px}
   .hero-proof{gap:24px;flex-wrap:wrap}
+.process-steps{grid-template-columns:1fr !important;}
+.process-card{padding:40px 28px;}
+.process-top{grid-template-columns: 1fr !important;gap: 32px;}
+    .testimonials-grid{
+        grid-template-columns:1fr;
+    }
+
+    .testimonial-video{
+        height:220px;
+    }
+
 }
 </style>
 </head>
@@ -847,36 +1084,151 @@ transition:0.3s;
       <div class="about-photo">
         <!-- EDIT: Replace this div with <img src="your-photo.jpg" alt="Kat Nicholas" style="width:100%;height:100%;object-fit:cover;"> -->
          <img src="profile.JPG" alt="kat Nicholas" srcset="" style="width:100%;height:100%;object-fit:cover;">
-        <div class="ap-kat">KAT</div>
+        <!-- <div class="ap-kat">KAT</div>
         <div class="ap-label">Nicholas</div>
-      </div>
+      
       <div class="about-badge">
         <div class="ab-num">5+</div>
         <div class="ab-label">YEARS EDITING</div>
+      </div> -->
       </div>
     </div>
     <div class="about-text reveal-right">
       <div class="s-tag">About Me</div>
-      <h2 class="s-title">The editor behind the <em>brand.</em></h2>
+      <h2 class="s-title">Hi, I'm Kat <em>Nicholas.</em></h2>
       <div class="gold-rule"></div>
-      <p>Hey, I'm Kat Nicholas — a video editor who specialises in helping coaches and consultants create premium, cinematic content that attracts high-ticket clients and builds undeniable authority online.</p>
-      <p>I know what it feels like to have a powerful message that isn't landing — because your content doesn't match the quality of your expertise. That's exactly why I exist.</p>
+      <p> — a video editor who specialises in helping coaches and consultants create premium,<br> cinematic content that attracts high-ticket clients and builds undeniable authority online.</p>
+      <p>I know what it feels like to have a powerful message that isn't landing — <br> because your content doesn't match the quality of your expertise. That's exactly why I exist.</p>
       <p>Every edit I deliver is intentional, story-driven, and built to move people — from scroll to sale.</p>
       <div class="about-pills">
         <span class="pill">Cinematic Editing</span>
         <span class="pill">Story-Driven</span>
-        <span class="pill">48hr Turnaround</span>
+        <span class="pill">48hr Turnaround</span> <br>
         <span class="pill">Unlimited Revisions</span>
         <span class="pill">Brand Consistency</span>
         <span class="pill">Premium Quality</span>
       </div>
     </div>
   </div>
+  <div class="hero-actions" style="padding-left: 55%; top: 0;">
+  <a href="#contact" class="btn-dark">BOOK A FREE CALL</a>
+  </div>
+</section>
+
+<!-- ── TESTIMONIAL ───────────────────────────────────────── -->
+ <section class="testimonials-section">
+
+    <div class="testimonials-grid">
+
+        <!-- CARD 1 -->
+        <div class="testimonial-card">
+
+            <div class="testimonial-video">
+                <video class="t-video" muted loop playsinline>
+                    <source src="TESTIMONIAL ANNE.mp4" type="video/mp4">
+                </video>
+
+                <div class="play-btn">▶</div>
+            </div>
+
+            <div class="testimonial-content">
+
+                <div class="stars">★★★★★</div>
+
+                <p class="t-text">
+                    “Kat completely transformed my content. My engagement tripled within the first month.”
+                </p>
+
+                <div class="t-person">
+
+                    <div class="avatar">A</div>
+
+                    <div>
+                        <div class="t-name">Annelise MC.</div>
+                        <div class="t-role">Public Speaking Coach</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="testimonial-card">
+
+            <div class="testimonial-video">
+                <video class="t-video" muted loop playsinline>
+                    <source src="TESTIMONIAL TRANG.mp4" type="video/mp4">
+                </video>
+
+                <div class="play-btn">▶</div>
+            </div>
+
+            <div class="testimonial-content">
+
+                <div class="stars">★★★★★</div>
+
+                <p class="t-text">
+                    “I booked 4 discovery calls within 48 hours of posting my first reel.”
+                </p>
+
+                <div class="t-person">
+
+                    <div class="avatar">N</div>
+
+                    <div>
+                        <div class="t-name">Trang Nova.</div>
+                        <div class="t-role">Travel Creator</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="testimonial-card">
+
+            <div class="testimonial-video">
+                <video class="t-video" muted loop playsinline>
+                    <source src="TESTIMONIAL JESS.mp4" type="video/mp4">
+                </video>
+
+                <div class="play-btn">▶</div>
+            </div>
+
+            <div class="testimonial-content">
+
+                <div class="stars">★★★★★</div>
+
+                <p class="t-text">
+                    “Working with Kat is effortless. My videos now feel premium and cinematic.”
+                </p>
+
+                <div class="t-person">
+
+                    <div class="avatar">J</div>
+
+                    <div>
+                        <div class="t-name">Jess Whatsman.</div>
+                        <div class="t-role">CEO AgentSync</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 <!-- ── PROCESS ───────────────────────────────────────── -->
 <section id="process">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:0;max-width:900px">
+  <div class="process-top" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
     <div class="reveal">
       <div class="s-tag">How It Works</div>
       <h2 class="s-title">Simple process. <em>Exceptional results.</em></h2>
@@ -1430,6 +1782,26 @@ video.muted = true;
 });
 
 });
+</script>
+<script>
+
+const videos = document.querySelectorAll('.t-video');
+
+videos.forEach(video => {
+
+    video.parentElement.addEventListener('mouseenter', () => {
+
+        videos.forEach(v => {
+            v.pause();
+            v.currentTime = 0;
+        });
+
+        video.play();
+
+    });
+
+});
+
 </script>
 </script>
 </body>
