@@ -40,6 +40,13 @@ a{text-decoration:none;color:inherit}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--cream2)}
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+.left{
+    transform:translateX(-100px);
+}
+
+.right{
+    transform:translateX(100px);
+}
 
 /*──────────────────────────────────────────────
   NAV
@@ -101,168 +108,292 @@ nav.scrolled{padding:14px 6%;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
 /*──────────────────────────────────────────────
   HERO — SPLIT SCREEN
 ──────────────────────────────────────────────*/
-#home{
-  min-height:100vh;display:grid;
-  grid-template-columns:1fr 1fr;
-  padding-top:80px;
-}
-.hero-left{
-  background:var(--navy); 
-  /* background: url(/Screenshot\ 2026-04-28\ 113508.png) no-repeat center; */
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;min-height:100vh;
-  padding:60px 48px;
-}
-/* ── HERO PHOTO (behind the logo) ───────────────── */
-.hero-left {
-  position: relative; /* make sure this is already there */
-  overflow: hidden;
+/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.hero-photo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;      /* full width of left panel */
-  height: 100%;     /* full height of left panel */
-  object-fit: cover;
-  object-position: center top;
-  z-index: 1;       /* behind the logo rings */
-
-  /* Fades photo into dark background on all edges */
-  mask-image: linear-gradient(
-    to top,
-    transparent 0%,
-    black 15%,
-    black 75%,
-    transparent 100%
-  ),
-  linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to top,
-    transparent 0%,
-    black 15%,
-    black 75%,
-    transparent 100%
-  ),
-  linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-  mask-composite: intersect;
-  -webkit-mask-composite: source-in;
-
- opacity: 0.5; /* adjust 0.3 = subtle, 0.7 = strong */
+body{
+  /* background:#06070a; */
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+}
+#home.hero{
+  background:#06070a;
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
 }
 
-/* Logo ring stays on top */
-.hero-brand-mark {
-  position: relative;
-  z-index: 2;
-}
-.hero-left-bg{
-  position:absolute;inset:0;
-  z-index: 0;
-  background:radial-gradient(ellipse at 40% 60%,rgba(196,97,26,.35) 0%,transparent 65%),
-             radial-gradient(ellipse at 80% 20%,rgba(232,184,0,.1) 0%,transparent 50%);
-}
-.hero-brand-mark{position:relative;z-index:2;text-align:center;}
-.hbm-ring{
-  width:280px;height:280px;border-radius:50%;
-  border:1px solid rgba(232,184,0,.25);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;margin:0 auto;
-}
-.hbm-ring::before{
-  content:'';position:absolute;inset:-16px;border-radius:50%;
-  border:1px solid rgba(232,184,0,.1);
-}
-.hbm-ring::after{
-  content:'';position:absolute;inset:-32px;border-radius:50%;
-  border:1px solid rgba(232,184,0,.05);
-}
-.hbm-inner{
-  width:220px;height:220px;border-radius:50%;
-  background:radial-gradient(ellipse,#2A1245 0%,#0D0618 100%);
-  display:flex;align-items:center;justify-content:center;
-  flex-direction:column;gap:0;
-  position:relative;overflow:hidden;
-}
-.hbm-inner::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 65%,rgba(196,97,26,.5) 0%,transparent 60%);
-}
-.hbm-kat{
-  font-family:'Cinzel',serif;font-size:72px;font-weight:900;
-  color:var(--gold);position:relative;z-index:1;
-  text-shadow:0 0 40px rgba(196,97,26,.7);line-height:1;
-}
-.hbm-nicholas{
-  font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;
-  color:rgba(240,240,255,.4);position:relative;z-index:1;margin-top:4px;
-}
-.hbm-tag{
-  margin-top:28px;font-size:10px;letter-spacing:4px;text-transform:uppercase;
-  color:rgba(240,240,255,.35);
-}
-.hbm-line{width:40px;height:1px;background:var(--gold);opacity:.4;margin:12px auto 0}
+/* ===== HERO ===== */
 
-.hero-right{
-  background:var(--cream);
-  display:flex;align-items:center;
-  padding:80px 64px;position:relative;
+.hero{
+  position:relative;
+  min-height:100vh;
+  background:
+  radial-gradient(circle at center,
+  rgba(255,140,0,0.28) 0%,
+  rgba(255,140,0,0.12) 25%,
+  rgba(10,10,10,1) 70%);
+  
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
-.hero-right::before{
-  content:'';position:absolute;top:0;left:0;
-  width:1px;height:100%;
-  background:linear-gradient(to bottom,transparent,var(--gold),transparent);
-  opacity:.3;
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+  width:100%;
+  padding:32px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:10;
 }
-.hero-content{max-width:560px}
+
+.logo{
+  color:#d8a227;
+  font-size:1.7rem;
+  font-weight:600;
+  letter-spacing:1px;
+  font-family:'Cormorant Garamond', serif;
+}
+
+.nav-btn{
+  border:1px solid #d8a227;
+  padding:16px 30px;
+  color:#d8a227;
+  text-decoration:none;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.nav-btn:hover{
+  background:#d8a227;
+  color:black;
+}
+
+/* ===== BACKGROUND GLOW ===== */
+
+.hero-glow{
+   position:absolute;
+    width:900px;
+    height:900px;
+
+    background:radial-gradient(circle,
+    rgba(255,140,0,0.28) 0%,
+    rgba(255,140,0,0.14) 30%,
+    rgba(255,140,0,0.05) 55%,
+    transparent 72%);
+
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:1;
+
+    filter: blur(20px);
+}
+.hero-glow{
+    animation: glowMove 8s ease-in-out infinite;
+}
+
+@keyframes glowMove{
+    0%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+
+    50%{
+        transform:translate(-48%,-52%) scale(1.1);
+    }
+
+    100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
+}
+
+/* ===== WATERMARK ===== */
+
+.hero-watermark{
+  position:absolute;
+  top:48%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:700px;
+  height:700px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2;
+}
+
+.ring{
+  position:absolute;
+  border:1px solid rgba(216,162,39,0.12);
+  border-radius:50%;
+}
+
+.ring1{
+  width:420px;
+  height:420px;
+}
+
+.ring2{
+  width:520px;
+  height:520px;
+}
+
+.ring3{
+  width:620px;
+  height:620px;
+}
+
+.watermark-text{
+  text-align:center;
+  opacity:.16;
+}
+
+.watermark-text h2{
+  font-size:10rem;
+  color:#d8a227;
+  font-family:'Cormorant Garamond', serif;
+  font-weight:500;
+  letter-spacing:3px;
+}
+
+.watermark-text span{
+  color:#d8a227;
+  font-size:1rem;
+  letter-spacing:12px;
+}
+
+/* ===== CONTENT ===== */
+
+.hero-content{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  max-width:1100px;
+  margin-top:140px;
+  padding:0 20px;
+}
+
 .hero-kicker{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:10px;letter-spacing:4px;text-transform:uppercase;
-  color:var(--orange);margin-bottom:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  color:#d8a227;
+  letter-spacing:5px;
+  font-size:.9rem;
+  margin-bottom:30px;
 }
-.hero-kicker::before{content:'';width:24px;height:1px;background:var(--orange)}
-.hero-h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(44px,5vw,72px);font-weight:600;
-  line-height:1.08;margin-bottom:28px;color:var(--navy);
-}
-.hero-h1 em{color:var(--gold);font-style:italic}
-.hero-sub{
-  font-size:17px;font-weight:300;color:var(--mid);
-  line-height:1.8;margin-bottom:44px;max-width:460px;
-}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
-.btn-dark{
-  background:var(--navy);color:var(--gold-lt);
-  padding:16px 40px;border-radius:4px;
-  font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;
-  border:2px solid var(--navy);transition:all .25s;
-}
-.btn-dark:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,150,10,.25)}
-.btn-ghost{
-  background:transparent;color:var(--navy);
-  padding:14px 40px;border-radius:4px;
-  font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;
-  border:2px solid rgba(15,21,32,.25);transition:all .25s;
-}
-.btn-ghost:hover{border-color:var(--navy);transform:translateY(-2px)}
-.hero-proof{display:flex;gap:40px;padding-top:40px;border-top:1px solid rgba(0,0,0,.08)}
 
-.proof-num{font-family:'Cinzel',serif;font-size:32px;font-weight:900;color:var(--navy)}
-.proof-label{font-size:11px;color:var(--light);letter-spacing:1px;margin-top:2px}
+.hero-kicker span{
+  width:70px;
+  height:1px;
+  background:#d8a227;
+}
+
+.hero-content h1{
+  color:white;
+  font-family:'Cormorant Garamond', serif;
+  font-size:6rem;
+  line-height:1.02;
+  font-weight:500;
+  margin-bottom:30px;
+}
+
+.hero-content h1 em{
+  color:#d8a227;
+  font-style:italic;
+}
+
+.hero-content p{
+  color:rgba(255,255,255,.82);
+  font-size:1.35rem;
+  line-height:1.8;
+  max-width:850px;
+  margin:auto;
+  margin-bottom:55px;
+}
+
+.hero-btn{
+  display:inline-block;
+  border:1px solid #d8a227;
+  padding:22px 55px;
+  color:#d8a227;
+  text-decoration:none;
+  letter-spacing:3px;
+  font-size:1rem;
+  transition:.3s;
+}
+
+.hero-btn:hover{
+  background:#d8a227;
+  color:black;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1000px){
+
+  .hero-content h1{
+    font-size:4.2rem;
+  }
+
+  .watermark-text h2{
+    font-size:7rem;
+  }
+}
+
+@media(max-width:700px){
+
+  .hero-content{
+    margin-top:100px;
+  }
+
+  .hero-content h1{
+    font-size:3rem;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+  }
+
+  .navbar{
+    padding:25px;
+  }
+
+  .nav-btn{
+    display:none;
+  }
+
+  .hero-watermark{
+    width:450px;
+    height:450px;
+  }
+
+  .ring1{
+    width:250px;
+    height:250px;
+  }
+
+  .ring2{
+    width:320px;
+    height:320px;
+  }
+
+  .ring3{
+    width:390px;
+    height:390px;
+  }
+}
 
 /*──────────────────────────────────────────────
   TICKER / MARQUEE
@@ -310,14 +441,14 @@ section{padding:110px 6%}
 .about-visual{position:relative; display:flex;
     justify-content:flex-end;}
 .about-photo{
-  width:70%;aspect-ratio:4/5;max-width: 400px;gap:2px;
+  width:70%;aspect-ratio:4/5;max-width: 460px;gap:2px;
   background:linear-gradient(160deg,var(--navy) 0%,var(--purple) 100%);
   border-radius:20px;display:flex;align-items:center;justify-content:center;
   flex-direction:column;gap:8px;position:relative;overflow:hidden;
 }
 .about-photo::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 65%,rgba(196,97,26,.35) 0%,transparent 65%);
+  
 }
 .ap-kat{font-family:'Cinzel',serif;font-size:80px;font-weight:900;color:var(--gold);position:relative;z-index:1;text-shadow:0 0 40px rgba(196,97,26,.5)}
 .ap-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(240,240,255,.3);position:relative;z-index:1}
@@ -329,12 +460,12 @@ section{padding:110px 6%}
 .ab-num{font-family:'Cinzel',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
 .ab-label{font-size:10px;color:rgba(240,240,255,.5);letter-spacing:2px;margin-top:4px}
 .about-stripe{
-  position:absolute;top:24px;left:-25px;
+  position:absolute;top:24px;left:10px;
   width:4px;height:80px;
   background:linear-gradient(to bottom,var(--gold),var(--orange));
   border-radius:2px;
 }
-.about-text p{font-size:16px;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:18px}
+.about-text p{font-size:16px;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:32px;max-width: 520px;}
 .about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
 .pill{
   font-size:11px;letter-spacing:1px;text-transform:uppercase;
@@ -495,7 +626,7 @@ section{padding:110px 6%}
     height:72px;
     border-radius:50%;
     background:white;
-    color:#6D28D9;
+    color:#C8960A;;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -1006,54 +1137,48 @@ transition:0.3s;
 </div>
 
 <!-- ── HERO ─────────────────────────────────────────── -->
-<section id="home">
-  <div class="hero-left reveal-left">
-    <div class="hero-left-bg"></div>
-    <div class="hero-brand-mark">
-      <div class="hbm-ring">
-        <!-- <img src="profile.JPG" alt="Kat Nicholas" class="hero-photo"/> -->
-        <div class="hbm-inner">
-          <div class="hbm-kat">KAT</div>
-          <div class="hbm-nicholas">NICHOLAS</div>
-        </div>
-      </div>
-      <div class="hbm-tag">Video Editing Studio</div>
-      <div class="hbm-line"></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-content reveal-right">
-      <div class="hero-kicker">Coaches &amp; Consultants</div>
-      <h1 class="hero-h1">
-        Your content should feel as<br>
-        <em>premium</em> as your offer.
-      </h1>
-      <p class="hero-sub">
-        I create cinematic, story-driven video content that positions you as the authority,
-        attracts premium clients, and makes your brand impossible to ignore.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-dark">BOOK A FREE CALL</a>
-        <a href="#portfolio" class="btn-ghost"> VIEW MY WORK</a>
-      </div>
-      <div class="hero-proof">
-        <div class="proof-item">
-          <div class="proof-num">50+</div>
-          <div class="proof-label">Clients Served</div>
-        </div>
-        <div class="proof-item">
-          <div class="proof-num">500+</div>
-          <div class="proof-label">Videos Edited</div>
-        </div>
-        <div class="proof-item">
-          <div class="proof-num">5.0★</div>
-          <div class="proof-label">Average Rating</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- HERO -->
+<section class="hero" id="home">
 
+  <!-- BACKGROUND GLOW -->
+  <div class="hero-glow"></div>
+
+  <!-- CENTER LOGO -->
+  <!-- <div class="hero-watermark">
+    <div class="ring ring1"></div>
+    <div class="ring ring2"></div>
+    <div class="ring ring3"></div>
+
+    <div class="watermark-text">
+      <h2>KAT</h2>
+    </div>
+  </div> -->
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+
+    <div class="hero-kicker">
+      <span></span>
+      COACHES & CONSULTANTS
+      <span></span>
+    </div>
+
+    <h1>
+      Your content should feel as <br>
+      <em>premium</em> as your offer.
+    </h1>
+
+    <p>
+      I create cinematic, story-driven video content that positions you as
+      the authority, attracts premium clients, and makes your brand impossible
+      to ignore.
+    </p>
+
+    <a href="#contact" class="btn-dark hero-btn">BOOK A FREE CALL</a>
+
+  </div>
+
+</section>
 <!-- ── TICKER ───────────────────────────────────────── -->
 <div class="ticker">
   <div class="ticker-track" id="tickerTrack">
@@ -1076,45 +1201,6 @@ transition:0.3s;
   </div>
 </div>
 
-<!-- ── ABOUT ────────────────────────────────────────── -->
-<section id="about">
-  <div class="about-wrap">
-    <div class="about-visual reveal-left">
-      <div class="about-stripe"></div>
-      <div class="about-photo">
-        <!-- EDIT: Replace this div with <img src="your-photo.jpg" alt="Kat Nicholas" style="width:100%;height:100%;object-fit:cover;"> -->
-         <img src="profile.JPG" alt="kat Nicholas" srcset="" style="width:100%;height:100%;object-fit:cover;">
-        <!-- <div class="ap-kat">KAT</div>
-        <div class="ap-label">Nicholas</div>
-      
-      <div class="about-badge">
-        <div class="ab-num">5+</div>
-        <div class="ab-label">YEARS EDITING</div>
-      </div> -->
-      </div>
-    </div>
-    <div class="about-text reveal-right">
-      <div class="s-tag">About Me</div>
-      <h2 class="s-title">Hi, I'm Kat <em>Nicholas.</em></h2>
-      <div class="gold-rule"></div>
-      <p> — a video editor who specialises in helping coaches and consultants create premium,<br> cinematic content that attracts high-ticket clients and builds undeniable authority online.</p>
-      <p>I know what it feels like to have a powerful message that isn't landing — <br> because your content doesn't match the quality of your expertise. That's exactly why I exist.</p>
-      <p>Every edit I deliver is intentional, story-driven, and built to move people — from scroll to sale.</p>
-      <div class="about-pills">
-        <span class="pill">Cinematic Editing</span>
-        <span class="pill">Story-Driven</span>
-        <span class="pill">48hr Turnaround</span> <br>
-        <span class="pill">Unlimited Revisions</span>
-        <span class="pill">Brand Consistency</span>
-        <span class="pill">Premium Quality</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-actions" style="padding-left: 55%; top: 0;">
-  <a href="#contact" class="btn-dark">BOOK A FREE CALL</a>
-  </div>
-</section>
-
 <!-- ── TESTIMONIAL ───────────────────────────────────────── -->
  <section class="testimonials-section">
 
@@ -1125,7 +1211,7 @@ transition:0.3s;
 
             <div class="testimonial-video">
                 <video class="t-video" muted loop playsinline>
-                    <source src="TESTIMONIAL ANNE.mp4" type="video/mp4">
+                    <source src="Anne web.mp4" type="video/mp4">
                 </video>
 
                 <div class="play-btn">▶</div>
@@ -1159,7 +1245,7 @@ transition:0.3s;
 
             <div class="testimonial-video">
                 <video class="t-video" muted loop playsinline>
-                    <source src="TESTIMONIAL TRANG.mp4" type="video/mp4">
+                    <source src="Tang web.mp4" type="video/mp4">
                 </video>
 
                 <div class="play-btn">▶</div>
@@ -1193,7 +1279,7 @@ transition:0.3s;
 
             <div class="testimonial-video">
                 <video class="t-video" muted loop playsinline>
-                    <source src="TESTIMONIAL JESS.mp4" type="video/mp4">
+                    <source src="Jess web.mp4" type="video/mp4">
                 </video>
 
                 <div class="play-btn">▶</div>
@@ -1499,7 +1585,7 @@ transition:0.3s;
         <li class="no">Brand story reel</li>
         <li class="no">Priority support</li>
       </ul>
-      <button class="pc-btn dark" onclick="scrollTo('contact')"><a href="#contact" class="nav-cta">GET STARTED</a></button>
+      <button class="pc-btn dark cf-title" onclick="scrollTo('contact')"><a href="#contact" class="nav-cta">GET STARTED</a></button>
     </div>
     <div class="price-card featured reveal">
       <div class="pc-badge">MOST POPULAR</div>
@@ -1545,6 +1631,44 @@ transition:0.3s;
   <div class="cta-actions reveal">
     <a href="#contact" class="btn-dark">BOOK A FREE CALL</a>
     <a href="#portfolio" class="btn-ghost" style="color:rgba(240,240,255,.6);border-color:rgba(240,240,255,.2);">VIEW MY WORK</a>
+  </div>
+</section>
+<!-- ── ABOUT ────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-visual reveal-left">
+      <div class="about-stripe"></div>
+      <div class="about-photo">
+        <!-- EDIT: Replace this div with <img src="your-photo.jpg" alt="Kat Nicholas" style="width:100%;height:100%;object-fit:cover;"> -->
+         <img src="profile.JPG" alt="kat Nicholas" srcset="" style="width:100%;height:100%;object-fit:cover;">
+        <!-- <div class="ap-kat">KAT</div>
+        <div class="ap-label">Nicholas</div>
+      
+      <div class="about-badge">
+        <div class="ab-num">5+</div>
+        <div class="ab-label">YEARS EDITING</div>
+      </div> -->
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <div class="s-tag">About Me</div>
+      <h2 class="s-title">Hi, I'm Kat <em>Nicholas.</em></h2>
+      <div class="gold-rule"></div>
+      <p> — a video editor who specialises in helping coaches and consultants create premium,<br> cinematic content that attracts high-ticket clients and builds undeniable authority online.</p>
+      <p>I know what it feels like to have a powerful message that isn't landing — <br> because your content doesn't match the quality of your expertise. That's exactly why I exist.</p>
+      <p>Every edit I deliver is intentional, story-driven, and built to move people — from scroll to sale.</p>
+      <div class="about-pills">
+        <span class="pill">Cinematic Editing</span>
+        <span class="pill">Story-Driven</span>
+        <span class="pill">48hr Turnaround</span> <br>
+        <span class="pill">Unlimited Revisions</span>
+        <span class="pill">Brand Consistency</span>
+        <span class="pill">Premium Quality</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-actions" style="padding-left: 55%; top: 0;">
+  <!-- <a href="#contact" class="btn-dark">BOOK A FREE CALL</a> -->
   </div>
 </section>
 
@@ -1692,7 +1816,7 @@ transition:0.3s;
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 <span>Kat Nicholas</span>. All rights reserved.</span>
+    <span>© 2026 <span>Kat Nicholas</span>. All rights reserved.</span>
     <span>Built for coaches &amp; consultants who mean business.</span>
   </div>
 </footer>
@@ -1803,6 +1927,16 @@ videos.forEach(video => {
 });
 
 </script>
+const glow = document.querySelector('.hero-glow');
+
+document.addEventListener('mousemove', (e) => {
+
+    let x = (window.innerWidth / 2 - e.pageX) / 40;
+    let y = (window.innerHeight / 2 - e.pageY) / 40;
+
+    glow.style.transform =
+    `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+});
 </script>
 </body>
 </html>
