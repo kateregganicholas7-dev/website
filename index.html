@@ -467,13 +467,43 @@ section{padding:110px 6%}
   border-radius:2px;
 }
 .about-text p{font-size:16px;font-weight:300;color:var(--mid);line-height:1.9;margin-bottom:32px;max-width: 520px;}
-.about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
-.pill{
-  font-size:11px;letter-spacing:1px;text-transform:uppercase;
-  padding:8px 18px;border-radius:2px;
-  border:1px solid rgba(200,150,10,.3);color:var(--gold-dk);
-  background:rgba(200,150,10,.06);
+.about-pills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+    margin-top:28px;
 }
+
+.pill{
+    min-width:160px;
+    text-align:center;
+    padding:14px 18px;
+    border:1px solid rgba(212,175,55,0.35);
+    border-radius:4px;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    background:transparent;
+    color:var(--gold);
+    text-align: center;
+}
+
+@media(max-width:768px){
+
+    .about-pills{
+        gap:10px;
+    }
+
+    .pill{
+        width:calc(50% - 10px);
+        min-width:unset;
+        font-size:11px;
+        padding:14px 10px;
+    }
+
+}
+
 
 /*──────────────────────────────────────────────
   TESTIMONIAL
@@ -1235,7 +1265,49 @@ transition:0.3s;
       font-size:16px;
       line-height:1.6;
   }
+   .about-grid{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        padding:0 20px;
+        text-align:center;
+        padding-left:0 !important;
+    }
 
+    .about-image{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .about-image img{
+        width:100%;
+        max-width:280px;
+        margin:0 auto;
+        display:block;
+    }
+     .about-wrap{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .about-visual{
+        justify-content:center;
+    }
+
+    .about-photo{
+        width:100%;
+        max-width:280px;
+        margin:0 auto;
+    }
+     .about-text{
+        text-align:center;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
 
 }
 </style>
@@ -1728,13 +1800,13 @@ transition:0.3s;
       <div class="s-tag">About Me</div>
       <h2 class="s-title">Hi, I'm Kat <em>Nicholas.</em></h2>
       <div class="gold-rule"></div>
-      <p> — a video editor who specialises in helping coaches and consultants create premium,<br> cinematic content that attracts high-ticket clients and builds undeniable authority online.</p>
+      <p>a video editor who specialises in helping coaches and consultants create premium,<br> cinematic content that attracts high-ticket clients and builds undeniable authority online.</p>
       <p>I know what it feels like to have a powerful message that isn't landing — <br> because your content doesn't match the quality of your expertise. That's exactly why I exist.</p>
       <p>Every edit I deliver is intentional, story-driven, and built to move people — from scroll to sale.</p>
       <div class="about-pills">
         <span class="pill">Cinematic Editing</span>
         <span class="pill">Story-Driven</span>
-        <span class="pill">48hr Turnaround</span> <br>
+        <span class="pill">48hr Turnaround</span>
         <span class="pill">Unlimited Revisions</span>
         <span class="pill">Brand Consistency</span>
         <span class="pill">Premium Quality</span>
