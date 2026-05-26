@@ -34,7 +34,7 @@
   --light:   #9CA3AF;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden; max-width: 100%;}
 h1,h2,h3,h4{font-family:'Cinzel',serif}
 a{text-decoration:none;color:inherit}
 ::-webkit-scrollbar{width:5px}
@@ -43,6 +43,7 @@ a{text-decoration:none;color:inherit}
 .left{
     transform:translateX(-100px);
 }
+*{box-sizing: border-box;}
 
 .right{
     transform:translateX(100px);
@@ -1249,9 +1250,10 @@ transition:0.3s;
   </div>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#results">Results</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Work</a></li>
+     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1336,7 +1338,7 @@ transition:0.3s;
 </div>
 
 <!-- ── TESTIMONIAL ───────────────────────────────────────── -->
- <section class="testimonials-section">
+ <section class="testimonials-section" id="results">
 
     <div class="testimonials-grid">
 
@@ -1347,6 +1349,13 @@ transition:0.3s;
                 <video class="t-video" muted loop playsinline>
                     <source src="TESTIMONIAL ANNE.mp4" type="video/mp4">
                 </video>
+                <!-- <iframe
+              class="testimonial-video"
+              src="https://player.vimeo.com/video/1012459048"
+              frameborder="0"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe> -->
 
                 <div class="play-btn">▶</div>
             </div>
