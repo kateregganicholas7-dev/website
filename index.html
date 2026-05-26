@@ -1264,11 +1264,12 @@ transition:0.3s;
 </nav>
 <div class="mob-nav" id="mobNav">
   <a href="#home" onclick="toggleMenu()">Home</a>
-  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#results" onclick="toggleMenu()">Results</a>
   <a href="#services" onclick="toggleMenu()">Services</a>
   <a href="#portfolio" onclick="toggleMenu()">Work</a>
   <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
-  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <!-- <a href="#pricing" onclick="toggleMenu()">Pricing</a> -->
+  <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
 
@@ -1305,9 +1306,7 @@ transition:0.3s;
     </h1>
 
     <p>
-      I create cinematic, story-driven video content that positions you as
-      the authority, attracts premium clients, and makes your brand impossible
-      to ignore.
+      I create powerful talking head videos that increase your visibility and credibility. Make more money and build your empire.
     </p>
 
     <a href="#contact" class="btn-dark hero-btn">BOOK A FREE CALL</a>
@@ -1346,7 +1345,7 @@ transition:0.3s;
         <div class="testimonial-card">
 
             <div class="testimonial-video">
-                <video class="t-video" muted loop playsinline>
+                <video class="t-video" loop playsinline>
                     <source src="TESTIMONIAL ANNE.mp4" type="video/mp4">
                 </video>
                 <!-- <iframe
@@ -1357,7 +1356,7 @@ transition:0.3s;
               allowfullscreen>
             </iframe> -->
 
-                <div class="play-btn">▶</div>
+                <!-- <div class="play-btn">▶</div> -->
             </div>
 
             <div class="testimonial-content">
@@ -1387,11 +1386,11 @@ transition:0.3s;
         <div class="testimonial-card">
 
             <div class="testimonial-video">
-                <video class="t-video" muted loop playsinline>
+                <video class="t-video" loop playsinline>
                     <source src="TESTIMONIAL TRANG.mp4" type="video/mp4">
                 </video>
 
-                <div class="play-btn">▶</div>
+                <!-- <div class="play-btn">▶</div> -->
             </div>
 
             <div class="testimonial-content">
@@ -1421,11 +1420,11 @@ transition:0.3s;
         <div class="testimonial-card">
 
             <div class="testimonial-video">
-                <video class="t-video" muted loop playsinline>
+                <video class="t-video" loop playsinline>
                     <source src="TESTIMONIAL JESS.mp4" type="video/mp4">
                 </video>
 
-                <div class="play-btn">▶</div>
+                <!-- <div class="play-btn">▶</div> -->
             </div>
 
             <div class="testimonial-content">
@@ -1591,9 +1590,12 @@ transition:0.3s;
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#2A1245 0%,#111827 100%)"></div> -->
-         <video class="port-video" autoplay loop playsinline>
+         <!-- <video class="port-video" autoplay loop playsinline>
             <source src="Copy of positivity.mp4" type="video/mp4"> </video>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-overlay"><div class="play-ring">▶</div></div> -->
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1054785178?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="positivity"></iframe>
+        </div><script src="https://player.vimeo.com/api/player.js"></script>
         <div class="port-info">
           <div class="port-tag">Podcast · 45 min</div>
           <div class="port-title">Sales Consultant Podcast Series</div>
@@ -2052,7 +2054,7 @@ video.muted = true;
 </script>
 <script>
 
-const videos = document.querySelectorAll('.t-video');
+const portvideo= document.querySelectorAll('.t-video');
 
 videos.forEach(video => {
 
@@ -2080,6 +2082,26 @@ document.addEventListener('mousemove', (e) => {
 
     glow.style.transform =
     `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+});
+</script>
+<script>
+  const videos = document.querySelectorAll("video");
+
+videos.forEach(video => {
+
+  video.addEventListener("mouseenter", () => {
+    videos.forEach(v => {
+      v.muted = true;
+    });
+
+    video.muted = false;
+    video.play();
+  });
+
+  video.addEventListener("mouseleave", () => {
+    video.muted = true;
+  });
+
 });
 </script>
 </body>
