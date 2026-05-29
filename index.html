@@ -1103,7 +1103,7 @@ transition:0.3s;
 }
 
 .result-box{
-    background:#f7f4ee;
+    background:#020b24;
     border-radius:20px;
     overflow:hidden;
     border:1px solid rgba(255,255,255,0.08);
@@ -1122,7 +1122,7 @@ transition:0.3s;
 .result-box img{
     width:100%;
     height:100%;
-    /* object-fit:cover; */
+    object-fit:contain;
     display:block;
 }
 
@@ -1136,15 +1136,59 @@ transition:0.3s;
     font-size:48px;
     font-weight:700;
     margin-bottom:16px;
+    font-family:'Cormorant Garamond', serif;
 }
 
 .results-subtext{
     text-align:center;
     color:rgba(255,255,255,0.7);
-    font-size:18px;
+    font-size:12px;
     max-width:700px;
     margin:0 auto 60px;
     line-height:1.6;
+}
+.hero-social-proof{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap:18px;
+    margin-top:30px;
+}
+
+.avatar-group{
+    display:flex;
+    align-items:center;
+}
+
+.avatar-group img{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #0b0b0b;
+    margin-left:-14px;
+    transition:0.3s ease;
+}
+
+.avatar-group img:first-child{
+    margin-left:0;
+}
+
+.avatar-group img:hover{
+    transform:translateY(-6px);
+    z-index:5;
+}
+
+.stars{
+    color:#ffcc33;
+    font-size:20px;
+    letter-spacing:2px;
+}
+
+.proof-content p{
+    margin:0;
+    color:rgba(255,255,255,0.75);
+    font-size:15px;
 }
 /* TABLETS */
 @media(max-width:1200px){
@@ -1650,7 +1694,6 @@ transition:0.3s;
     </p>
 
 </div>
-  
     <div class="results-grid">
 
         <div class="result-box">
@@ -1658,7 +1701,31 @@ transition:0.3s;
         </div>
 
         <div class="result-box">
+            <img src="Artboard 35@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="wxsw.png" alt="">
+        </div>
+
+        <div class="result-box">
             <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 37@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 41@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 42@2x.png" alt="">
         </div>
 
         <div class="result-box">
@@ -1678,43 +1745,43 @@ transition:0.3s;
         </div>
 
         <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
-        </div>
-
-        <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
-        </div>
-
-        <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
-        </div>
-
-        <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
-        </div>
-
-        <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
-        </div>
-
-        <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
-        </div>
-
-        <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
+            <img src="Artboard 34@2x.png" alt="">
         </div>
         <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
+            <img src="Artboard 40@2x.png" alt="">
         </div>
         <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
+            <img src="Artboard 39@2x.png" alt="">
         </div>
         <div class="result-box">
-            <img src="Artboard 33@2x.png" alt="">
+            <img src="Artboard 43@2x.png" alt="">
         </div>
       </div>
+      <div class="hero-social-proof">
 
+    <div class="avatar-group">
+
+      <img src="profile.JPG" alt="">
+      <img src="profile.JPG" alt="">
+        <img src="profile.JPG" alt="">
+        <img src="profile.JPG" alt="">
+        <img src="profile.JPG" alt="">
+
+    </div>
+
+    <div class="proof-content">
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            Join 300+ Agency Owners
+        </p>
+
+    </div>
+
+</div>
 </section>
 <!-- ── SERVICES ──────────────────────────────────────── -->
 <section id="services">
