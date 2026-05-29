@@ -1086,6 +1086,118 @@ z-index:1000;
 transform:scale(1.1);
 transition:0.3s;
 }
+.results-section{
+     background:#020b24 !important;
+    padding:80px 5%;
+    box-sizing:border-box;
+    width: 100%;
+}
+
+.results-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    /* justify-content:center; */
+    gap:16px;
+    width:100%;
+     background:#020b24;
+}
+
+.result-box{
+    background:#f7f4ee;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.08);
+    /* min-height:320px; */
+    transition:0.3s ease;
+    max-width: 420px;
+     opacity:0;
+    transform:translateY(40px);
+    transition:all 0.8s ease;
+}
+.result-box.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.result-box img{
+    width:100%;
+    height:100%;
+    /* object-fit:cover; */
+    display:block;
+}
+
+.result-box:hover{
+     transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
+}
+.results-heading{
+    text-align:center;
+    color: #C8960A;
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.results-subtext{
+    text-align:center;
+    color:rgba(255,255,255,0.7);
+    font-size:18px;
+    max-width:700px;
+    margin:0 auto 60px;
+    line-height:1.6;
+}
+/* TABLETS */
+@media(max-width:1200px){
+
+    .results-grid{
+        grid-template-columns:repeat(2,340px);
+    }
+
+}
+
+/* PHONES */
+@media(max-width:768px){
+
+    .results-grid{
+        grid-template-columns:1fr;
+    }
+
+    .result-box{
+        width:100%;
+        max-width:380px;
+        margin:auto;
+    }
+  }
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .results-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
+    }
+
+    .result-box{
+        border-radius:18px;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .messages-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .client-messages{
+        padding:80px 0;
+    }
+
+}
 
 /*──────────────────────────────────────────────
   RESPONSIVE
@@ -1526,44 +1638,84 @@ transition:0.3s;
 
 </section>
 
-<!-- ── PROCESS ───────────────────────────────────────── -->
-<section id="process">
-  <div class="process-top" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
-    <div class="reveal">
-      <div class="s-tag">How It Works</div>
-      <h2 class="s-title">Simple process. <em>Exceptional results.</em></h2>
-    </div>
-    <div class="reveal">
-      <p class="s-body">From first contact to final delivery, I've made the entire experience seamless — so you can stay focused on coaching, not chasing files.</p>
-    </div>
-  </div>
-  <div class="process-steps">
-    <div class="process-step reveal">
-      <div class="ps-num">01</div>
-      <div class="ps-title">Discovery Call</div>
-      <div class="ps-body">We get on a free 30-min call to understand your brand, goals, and what kind of content will move the needle for your business.</div>
-      <div class="ps-arrow">→</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="ps-num">02</div>
-      <div class="ps-title">You Send Footage</div>
-      <div class="ps-body">You record and upload your raw footage via a shared Google Drive or WeTransfer link. No complicated systems or tech headaches.</div>
-      <div class="ps-arrow">→</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="ps-num">03</div>
-      <div class="ps-title">I Edit & Deliver</div>
-      <div class="ps-body">I edit, colour grade, add music, captions, and your brand elements — then deliver your video within 48–72 hours via a private link.</div>
-      <div class="ps-arrow">→</div>
-    </div>
-    <div class="process-step reveal">
-      <div class="ps-num">04</div>
-      <div class="ps-title">Review & Publish</div>
-      <div class="ps-body">You review, request any tweaks (unlimited revisions included), approve, and publish. Then watch your audience respond differently.</div>
-    </div>
-  </div>
-</section>
+<section class="results-section">
+  <div class="results-text">
 
+    <h2 class="results-heading">
+        Proof Over Promises
+    </h2>
+
+    <p class="results-subtext">
+        Trusted by creators, coaches and brands who value quality storytelling and premium editing.
+    </p>
+
+</div>
+  
+    <div class="results-grid">
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+        <div class="result-box">
+            <img src="Artboard 33@2x.png" alt="">
+        </div>
+      </div>
+
+</section>
 <!-- ── SERVICES ──────────────────────────────────────── -->
 <section id="services">
   <div class="services-intro">
@@ -2174,6 +2326,26 @@ videos.forEach(video => {
     video.muted = true;
   });
 
+});
+
+const boxes = document.querySelectorAll('.result-box');
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+boxes.forEach(box => {
+    observer.observe(box);
 });
 </script>
 </body>
