@@ -48,6 +48,41 @@ a{text-decoration:none;color:inherit}
 .right{
     transform:translateX(100px);
 }
+body::before{
+  content:'';
+  position:fixed;
+  left:var(--mouse-x);
+  top:var(--mouse-y);
+  width:400px;
+  height:400px;
+  background:radial-gradient(
+      circle,
+      rgba(212,175,55,.15) 0%,
+      transparent 80%
+  );
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:9999;
+}
+.trail{
+    position:fixed;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#d4af37;
+    pointer-events:none;
+    z-index:9999;
+    filter:blur(8px);
+    opacity:.5;
+    animation:fadeOut .8s linear forwards;
+}
+
+@keyframes fadeOut{
+    to{
+        opacity:0;
+        transform:scale(2);
+    }
+}
 
 /*──────────────────────────────────────────────
   NAV
@@ -203,6 +238,49 @@ body{
 .hero-glow{
     animation: glowMove 8s ease-in-out infinite;
 }
+/* #particles-js{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+ #particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+}
+
+ /* .particle{
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#d4af37;
+    opacity:.9;
+    animation:float linear infinite;
+}
+
+ @keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.4;
+    }
+
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
 
 @keyframes glowMove{
     0%{
@@ -216,7 +294,7 @@ body{
     100%{
         transform:translate(-50%,-50%) scale(1);
     }
-}
+} */
 
 /* ===== WATERMARK ===== */
 
@@ -503,8 +581,29 @@ section{padding:110px 6%}
     }
 
 }
+@media (max-width:768px){
 
+    .btn-dark,
+    .hero-btn{
+        width:auto;
+        max-width:90%;
+        display:inline-block;
+        padding:18px 24px;
+        white-space:nowrap;
+        margin:0 auto;
+         margin-left:0 !important;
+        margin-right:0 !important;
+        transform:none !important;
+    }
 
+    .cta-actions{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:100%;
+    }
+
+}
 /*──────────────────────────────────────────────
   TESTIMONIAL
 ──────────────────────────────────────────────*/
@@ -529,6 +628,10 @@ section{padding:110px 6%}
     display:flex;
     flex-direction:column;
     align-items:center;
+}
+#testimonials{
+    position:relative;
+    overflow:hidden;
 }
 
 .testimonial-card:hover{
@@ -592,6 +695,8 @@ section{padding:110px 6%}
 }
 .testimonials-section{
     padding:120px 5%;
+    position: relative;
+    overflow: hidden;
 }
 
 .testimonials-grid{
@@ -684,6 +789,63 @@ section{padding:110px 6%}
     font-style:italic;
     margin-bottom:28px;
 }
+.shooting-stars{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index: 0;
+}
+
+.shooting-stars span{
+    position:absolute;
+    width:150px;
+    height:2px;
+    background:linear-gradient(90deg,#d4af37,transparent);
+    border-radius:999px;
+    animation:shoot 15s linear infinite;
+    opacity:.7;
+}
+
+.shooting-stars span:nth-child(1){
+    top:15%;
+    left:-200px;
+    animation-delay:0s;
+}
+
+.shooting-stars span:nth-child(2){
+    top:35%;
+    left:-200px;
+    animation-delay:2s;
+}
+
+.shooting-stars span:nth-child(3){
+    top:60%;
+    left:-200px;
+    animation-delay:4s;
+}
+
+.shooting-stars span:nth-child(4){
+    top:80%;
+    left:-200px;
+    animation-delay:6s;
+}
+
+@keyframes shoot{
+    0%{
+        transform:translateX(0) translateY(0) rotate(25deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateX(2200px) translateY(300px) rotate(25deg);
+        opacity:0;
+    }
+}
 
 /* PERSON */
 .t-person{
@@ -767,6 +929,7 @@ align-items:center;
 .svc-card{
   background:var(--cream);padding:40px 36px;
   transition:all .3s;position:relative;overflow:hidden;
+   transition: transform .3s ease;
 }
 .svc-card::after{
   content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
@@ -878,8 +1041,18 @@ display:block;
 .testi-card{
   background:rgba(255,255,255,.03);
   border:1px solid rgba(255,255,255,.07);
-  border-radius:2px;padding:40px;
-  transition:all .3s;
+  border-radius:2px;padding: 25px;
+  transition:all .3s;min-height: 240px;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(50px);
+  transition:all .8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
 }
 .testi-card:hover{background:rgba(232,184,0,.04);border-color:rgba(232,184,0,.2);transform:translateY(-4px)}
 .testi-card.featured{
@@ -957,6 +1130,22 @@ display:block;
 #cta{
   background:var(--navy);padding:100px 6%;
   text-align:center;position:relative;overflow:hidden;
+}
+#particles-js{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
+.cta-eyebrow,
+.cta-title,
+.cta-sub,
+.cta-actions{
+    position:relative;
+    z-index:1;
 }
 #cta::before{
   content:'';position:absolute;top:50%;left:50%;
@@ -1484,7 +1673,8 @@ transition:0.3s;
 </script>
 </head>
 <body>
-
+  <!-- <div id="particles-js"></div>
+<div id="particles"></div> -->
 <!-- ── NAV ──────────────────────────────────────────── -->
 <nav id="nav">
   <div class="nav-logo">
@@ -1500,7 +1690,7 @@ transition:0.3s;
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="https://calendly.com/kat-nicholas/clarity-call" class="nav-cta">BOOK A CALL</a>
+  <a href="https://calendly.com/kat-nicholas/clarity-call" class="nav-cta onclick="gtag('event', 'book_call_click');">BOOK A CALL</a>
   <div class="hamburger" id="ham" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -1552,7 +1742,7 @@ transition:0.3s;
       I create powerful talking head videos that increase your visibility and credibility. Make more money and build your empire.
     </p>
 
-    <a href="https://calendly.com/kat-nicholas/clarity-call" class="btn-dark hero-btn">BOOK A FREE CALL</a>
+    <a href="https://calendly.com/kat-nicholas/clarity-call" class="btn-dark hero-btn onclick="gtag('event', 'book_call_click');">BOOK A FREE CALL</a>
 
   </div>
 
@@ -1637,9 +1827,9 @@ transition:0.3s;
             </div>
 
             <div class="testimonial-content">
-
+              
                 <div class="stars">★★★★★</div>
-
+                
                 <p class="t-text">
                     “Kat is a very skilled Editor who transformed my content into an engaging message to my audience”
                 </p>
@@ -1803,7 +1993,7 @@ transition:0.3s;
     </div>
     <div class="reveal">
       <p class="s-body">Every service is designed to make your content feel as premium as your offer and perform like it too.</p>
-      <a href="#contact" class="btn-dark hero-btn" style="display:inline-block;margin-top:24px;">GET STARTED</a>
+      <a href="https://calendly.com/kat-nicholas/clarity-call" class="btn-dark hero-btn" style="display:inline-block;margin-top:24px;">BOOK A CALL</a>
     </div>
   </div>
   <div class="services-grid">
@@ -1839,7 +2029,7 @@ transition:0.3s;
       <div class="svc-num">05</div>
       <div class="svc-icon">🌟</div>
       <div class="svc-title">Testimonial Videos</div>
-      <p class="svc-body">Turn client wins into powerful social proof videos that sell for you while you sleep — the most underused asset in coaching.</p>
+      <p class="svc-body">Turn client wins into powerful social proof videos that sell for you while you sleep, the most underused asset in coaching.</p>
       <div class="svc-link"><a href="#contact"> Learn More →</a></div>
     </div>
     <div class="svc-card reveal">
@@ -1860,7 +2050,7 @@ transition:0.3s;
       <h2 class="s-title">Edits that speak for <em>themselves.</em></h2>
     </div>
     <div class="reveal">
-      <p class="s-body" style="max-width:360px;">Every project is built with the same intention — cinematic quality, clear story, real results.</p>
+      <p class="s-body" style="max-width:360px;">Every project is built with the same intention, cinematic quality, clear story, real results.</p>
       <!-- EDIT: Add your real YouTube/Vimeo links to the portfolio items below -->
     </div>
   </div>
@@ -1969,14 +2159,21 @@ transition:0.3s;
 
 <!-- ── TESTIMONIALS ──────────────────────────────────── -->
 <section id="testimonials">
+  <div class="shooting-stars">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
   <div style="text-align:center;max-width:540px;margin:0 auto 72px;" class="reveal">
     <div class="s-tag" style="justify-content:center;">Client Love</div>
-    <h2 class="s-title" style="color:#F0F0FF;">What coaches are <em>saying.</em></h2>
+    <h2 class="s-title hero-title" style="color:#F0F0FF;"> <em>What coaches are </em></h2>
   </div>
+  
   <div class="testi-grid">
     <div class="testi-card reveal">
       <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"Kat completely transformed my content. My engagement tripled within the first month. He doesn't just edit — He understands your brand and brings it to life."</p>
+      <p class="testi-quote">"Kat completely transformed my content. I got back hours every week while my content quality improved dramatically. It was one of the best investments I've made."</p>
       <div class="testi-author">
         <img src="Ann.jpg" alt="" class="client-avatar">
         <div>
@@ -1987,7 +2184,7 @@ transition:0.3s;
     </div>
     <div class="testi-card featured reveal">
       <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"I booked 4 discovery calls within 48 hours of posting my first brand reel. The ROI is insane. My content now looks like it belongs on Netflix."</p>
+      <p class="testi-quote">""Within weeks, my content started generating conversations that turned into paying clients."</p>
       <div class="testi-author">
         <img src="Nat.jpg" alt="" class="client-avatar">
         <div>
@@ -2004,6 +2201,41 @@ transition:0.3s;
         <div>
           <div class="testi-name">Jess Whatsman.</div>
           <div class="testi-role">CEO AgentSync</div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="testi-grid">
+    <div class="testi-card featured reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"For the first time, I was able to show up consistently online without feeling overwhelmed."</p>
+      <div class="testi-author">
+        <img src="Trang.jpg" alt="" class="client-avatar">
+        <div>
+          <div class="testi-name">Trang Nova</div>
+          <div class="testi-role">Business Coach</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Within weeks, my content started generating conversations that turned into paying clients."</p>
+      <div class="testi-author">
+        <img src="Carl.jpg" alt="" class="client-avatar">
+        <div>
+          <div class="testi-name">Carlii Lyon.</div>
+          <div class="testi-role">Speaker</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card featured reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Kat helped me look like the go-to expert in my industry. My content finally reflects the level of my business."</p>
+      <div class="testi-author">
+        <img src="Eli.jpg" alt="" class="client-avatar">
+        <div>
+          <div class="testi-name">Kat Elizabeth.</div>
+          <div class="testi-role">Business coach</div>
         </div>
       </div>
     </div>
@@ -2042,9 +2274,9 @@ transition:0.3s;
         <span class="pill">Premium Quality</span>
       </div> -->
     </div>
-  </div>
-  <div class="hero-actions" style="padding-left: 55%; top: 0;">
-  <!-- <a href="#contact" class="btn-dark">BOOK A FREE CALL</a> -->
+    <div class="hero-actions" style="padding-left: 55%; top: 0;">
+    <a href="https://calendly.com/kat-nicholas/clarity-call" class="btn-dark hero-btn onclick="gtag('event', 'book_call_click');">BOOK A CALL</a>
+    </div>
   </div>
 </section>
 
@@ -2110,11 +2342,13 @@ transition:0.3s;
 
 <!-- ── CTA BAND ──────────────────────────────────────── -->
 <section id="cta">
+  <div id="particles-js"></div>
+  
   <div class="cta-eyebrow">Ready to elevate your brand?</div>
   <h2 class="cta-title reveal">Stop letting your content<br><em>undersell</em> your expertise.</h2>
   <p class="cta-sub reveal">Book a free 30-minute discovery call and let's map out exactly what your content needs to attract premium clients.</p>
   <div class="cta-actions reveal">
-    <a href="https://calendly.com/kat-nicholas/clarity-call" class="btn-dark hero-btn">BOOK A FREE CALL</a>
+    <a href="https://calendly.com/kat-nicholas/clarity-call" class="btn-dark hero-btn onclick="gtag('event', 'book_call_click');">BOOK A FREE CALL</a>
     <!-- <a href="#portfolio" class="btn-ghost" style="color:rgba(240,240,255,.6);border-color:rgba(240,240,255,.2);">VIEW MY WORK</a> -->
   </div>
 </section>
@@ -2214,7 +2448,7 @@ transition:0.3s;
         <textarea class="cf-input" id="msg" placeholder="What do you sell, who do you serve, and what's your biggest content challenge right now?"></textarea>
       </div>
       <button type="submit" class="cf-submit">SEND MESSAGE ✦</button>
-      <div class="cf-success" id="cfSuccess">✦ Message received! I'll be in touch within 24 hours.</div>
+      <div class="cf-success" id="cfSuccess  onclick="gtag('event', 'Message_received');">✦ Message received! I'll be in touch within 24 hours.</div>
     </form>
   </div>
 </section>
@@ -2222,13 +2456,14 @@ transition:0.3s;
 <!-- ── FOOTER ────────────────────────────────────────── -->
 <footer>
   <div class="footer-top">
+    <div id="particles"></div>
     <div>
       <div class="f-logo">KAT NICHOLAS</div>
       <p class="f-tagline">Premium video editing for coaches and consultants who want their brand to look as powerful as their message.</p>
       <div class="f-social">
         <!-- EDIT: Add your real social URLs -->
-        <a href="https://www.instagram.com/itskatnicholas/"class="f-soc" title="Instagram">IG</a>
-        <a href="https://www.linkedin.com/in/kat-nicholas/" class="f-soc" title="LinkedIn">LI</a>
+        <a href="https://www.instagram.com/itskatnicholas/"class="f-soc" title="Instagram"> <i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/kat-nicholas/" class="f-soc" title="LinkedIn"> <i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
     <div>
@@ -2432,5 +2667,175 @@ AOS.init({
     once:true
 });
 </script>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener('mousemove', (e) => {
+  document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+  document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+});
+</script>
+<script>
+const counter = document.querySelector('.counter');
+let count = 0;
+
+const interval = setInterval(() => {
+  count += 5;
+  counter.textContent = count;
+  
+  if(count >= 300){
+    clearInterval(interval);
+  }
+},20);
+</script>
+<script>
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  document.querySelector('.hero-glow').style.transform =
+    `translateY(${scrolled * 0.3}px)`;
+});
+</script>
+<script>
+document.querySelectorAll('.card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const rect=card.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+
+    card.style.transform=
+      `perspective(1000px)
+       rotateY(${(x-rect.width/2)/20}deg)
+       rotateX(${-(y-rect.height/2)/20}deg)`;
+  });
+
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='perspective(1000px) rotateY(0) rotateX(0)';
+  });
+});
+</script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 40
+    },
+    color: {
+      value: "#d4af37"
+    },
+    shape: {
+      type: "circle"
+    },
+    opacity: {
+      value: 0.3
+    },
+    size: {
+      value: 4
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#d4af37",
+      opacity: 0.2,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1
+    }
+  }
+});
+</script>
+</script>
+
+<script>
+const particles = document.getElementById('particles');
+
+for(let i = 0; i < 15; i++){
+
+    const particle = document.createElement('div');
+
+    particle.classList.add('particle');
+
+    particle.style.left = Math.random() * 100 + '%';
+
+    particle.style.animationDuration =
+        (8 + Math.random() * 10) + 's';
+
+    particle.style.animationDelay =
+        Math.random() * 5 + 's';
+
+    particle.style.width =
+        particle.style.height =
+        (10 + Math.random() * 20) + 'px';
+
+    particles.appendChild(particle);
+}
+</script>
+<script>
+const btn = document.querySelector('.hero_btn');
+
+btn.addEventListener('mousemove', e => {
+  const rect = btn.getBoundingClientRect();
+
+  const x = e.clientX - rect.left - rect.width/2;
+  const y = e.clientY - rect.top - rect.height/2;
+
+  btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
+});
+
+hero_btn.addEventListener('mouseleave', () => {
+  btn.style.transform = 'translate(0,0)';
+});
+</script>
+<script>
+const text =
+"saying.";
+
+let i = 0;
+
+function type(){
+  if(i < text.length){
+    document.querySelector('.hero-title')
+      .innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type,40);
+  }
+}
+
+type();
+</script>
+<!-- <script>
+
+document.addEventListener('mousemove', e => {
+
+    const trail = document.createElement('div');
+
+    trail.classList.add('trail');
+
+    trail.style.left = e.clientX + 'px';
+    trail.style.top = e.clientY + 'px';
+
+    document.body.appendChild(trail);
+
+    setTimeout(() => {
+        trail.remove();
+    }, 800);
+
+});
+
+</script> -->
+<!-- <div id="trail-container"></div> -->
+<!-- <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
 </body>
 </html>
