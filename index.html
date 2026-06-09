@@ -978,10 +978,32 @@ opacity:0;
 }
 .port-video{
 transition:transform .6s ease;
+width: 100%;
+height: 100%;
+object-fit: contain;
+
 }
 
 .port-item:hover .port-video{
 transform:scale(1.06);
+}
+/* Vertical videos */
+.port-item:not(.horizontal){
+    aspect-ratio:9/16;
+}
+
+/* Horizontal videos */
+.port-item.horizontal{
+    grid-column: span 6;
+    height: 470px;
+    aspect-ratio: 16/9;
+}
+
+.port-item.horizontal video{
+    width: 100%;
+    height: 35%;
+    object-fit: cover;
+    object-position: center center;
 }
 /* 
 .port-item:nth-child(1){grid-column:span 7;grid-row:span 2}
@@ -2065,7 +2087,7 @@ transition:0.3s;
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Brand Story · 2 min</div> -->
-          <div class="port-title">Executive Coaching Brand Story Reel</div>
+          <!-- <div class="port-title">Executive Coaching Brand Story Reel</div> -->
         </div>
       </div>
     </div>
@@ -2077,22 +2099,22 @@ transition:0.3s;
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Short Form · Series of 5</div> -->
-          <div class="port-title">Business Coach Instagram Reels</div>
+          <!-- <div class="port-title">Business Coach Instagram Reels</div> -->
         </div>
       </div>
     </div>
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#2A1245 0%,#111827 100%)"></div> -->
-         <!-- <video class="port-video" autoplay loop playsinline>
+         <video class="port-video" autoplay loop playsinline>
             <source src="Copy of positivity.mp4" type="video/mp4"> </video>
-        <div class="port-overlay"><div class="play-ring">▶</div></div> -->
-        <div style="padding:177.78% 0 0 0;position:relative;">
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <!-- <div style="padding:177.78% 0 0 0;position:relative;">
           <iframe src="https://player.vimeo.com/video/1054785178?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="positivity"></iframe>
-        </div><script src="https://player.vimeo.com/api/player.js"></script>
+        </div><script src="https://player.vimeo.com/api/player.js"></script> -->
         <div class="port-info">
           <!-- <div class="port-tag">Podcast · 45 min</div> -->
-          <div class="port-title">Sales Consultant Podcast Series</div>
+          <!-- <div class="port-title">Sales Consultant Podcast Series</div> -->
         </div>
       </div>
     </div>
@@ -2104,7 +2126,7 @@ transition:0.3s;
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Course · 12 modules</div> -->
-          <div class="port-title">Life Coach Online Course</div>
+          <!-- <div class="port-title">Life Coach Online Course</div> -->
         </div>
       </div>
     </div>
@@ -2116,7 +2138,7 @@ transition:0.3s;
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
-          <div class="port-title">Mindset Coach Testimonial Reel</div>
+          <!-- <div class="port-title">Mindset Coach Testimonial Reel</div> -->
         </div>
       </div>
     </div>
@@ -2128,7 +2150,7 @@ transition:0.3s;
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
-          <div class="port-title">Mindset Coach Testimonial Reel</div>
+          <!-- <div class="port-title">Mindset Coach Testimonial Reel</div> -->
         </div>
       </div>
     </div>
@@ -2140,7 +2162,7 @@ transition:0.3s;
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
-          <div class="port-title">Mindset Coach Testimonial Reel</div>
+          <!-- <div class="port-title">Mindset Coach Testimonial Reel</div> -->
         </div>
       </div>
     </div>
@@ -2148,11 +2170,36 @@ transition:0.3s;
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
           <video class="port-video" autoplay loop playsinline>
-            <source src="Copy of xcourse launch.mp4" type="video/mp4"> </video>
+            <source src="Nat trailer.mp4" type="video/mp4"> </video>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Launch · VSL</div> -->
-          <div class="port-title">High-Ticket Offer Launch Video</div>
+          <!-- <div class="port-title">High-Ticket Offer Launch Video</div> -->
+        </div>
+      </div>
+    </div>
+     <!-- Horizontal videos -->
+     <div class="port-item reveal horizontal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
+          <video class="port-video" autoplay loop playsinline>
+            <source src="audience.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <!-- <div class="port-tag">Launch · VSL</div> -->
+          <!-- <div class="port-title">High-Ticket Offer Launch Video</div> -->
+        </div>
+      </div>
+    </div>
+     <div class="port-item reveal horizontal">
+      <div class="port-thumb">
+        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
+          <video class="port-video" autoplay loop playsinline>
+            <source src="failure part 1.mp4" type="video/mp4"> </video>
+        <div class="port-overlay"><div class="play-ring">▶</div></div>
+        <div class="port-info">
+          <!-- <div class="port-tag">Launch · VSL</div> -->
+          <!-- <div class="port-title">High-Ticket Offer Launch Video</div> -->
         </div>
       </div>
     </div>
