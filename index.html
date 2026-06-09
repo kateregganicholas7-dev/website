@@ -1005,6 +1005,39 @@ transform:scale(1.06);
     object-fit: cover;
     object-position: center center;
 }
+@media (max-width: 768px){
+
+    .port-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .port-item.horizontal{
+        grid-column: span 1;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    .port-item.horizontal video{
+        width: 100%;
+        height: 25%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px){
+
+    .port-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .port-item.horizontal{
+        grid-column: span 1;
+    }
+
+    .port-item.horizontal video{
+        height: 60%;
+    }
+}
 /* 
 .port-item:nth-child(1){grid-column:span 7;grid-row:span 2}
 .port-item:nth-child(2){grid-column:span 5}
@@ -2865,6 +2898,21 @@ function type(){
 }
 
 type();
+</script>
+<script>
+document.querySelectorAll('.testimonial-card').forEach(card => {
+
+    const video = card.querySelector('.t-video');
+
+    card.addEventListener('mouseenter', () => {
+        video.play();
+    });
+
+    card.addEventListener('mouseleave', () => {
+        video.pause();
+    });
+
+});
 </script>
 <!-- <script>
 
