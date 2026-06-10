@@ -1023,6 +1023,42 @@ transform:scale(1.06);
         object-fit: cover;
     }
 }
+/* Desktop */
+.port-grid{
+    grid-template-columns: repeat(12,1fr);
+}
+
+/* Laptop */
+@media (max-width: 1200px){
+
+    .port-grid{
+        grid-template-columns: repeat(8,1fr);
+    }
+
+    .port-item{
+        grid-column: span 2;
+    }
+
+    .port-item.horizontal{
+        grid-column: span 4;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px){
+
+    .port-grid{
+        grid-template-columns: repeat(4,1fr);
+    }
+
+    .port-item{
+        grid-column: span 2;
+    }
+
+    .port-item.horizontal{
+        grid-column: span 4;
+    }
+}
 
 @media (max-width: 480px){
 
@@ -1036,6 +1072,20 @@ transform:scale(1.06);
 
     .port-item.horizontal video{
         height: 60%;
+    }
+}
+@media (max-width: 1024px){
+
+    .port-grid{
+        grid-template-columns: repeat(6,1fr);
+    }
+
+    .port-item{
+        grid-column: span 2;
+    }
+
+    .port-item.horizontal{
+        grid-column: span 3;
     }
 }
 /* 
@@ -2289,6 +2339,18 @@ transition:0.3s;
         </div>
       </div>
     </div>
+     <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Kat is a delight to work with and a master at what he does. I felt supported,
+         guided and delighted every step of the way. I highly recommend him and everything he does."</p>
+      <div class="testi-author">
+        <img src="Carl.jpg" alt="" class="client-avatar">
+        <div>
+          <div class="testi-name">Carlii Lyon.</div>
+          <div class="testi-role">Speaker</div>
+        </div>
+      </div>
+      </div>
     
     <div class="testi-card featured reveal">
       <div class="testi-stars">★★★★★</div>
@@ -2300,17 +2362,7 @@ transition:0.3s;
           <div class="testi-role">Business coach</div>
         </div>
       </div>
-      <!-- <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-quote">"Within weeks, my content started generating conversations that turned into paying clients."</p>
-      <div class="testi-author">
-        <img src="Carl.jpg" alt="" class="client-avatar">
-        <div>
-          <div class="testi-name">Carlii Lyon.</div>
-          <div class="testi-role">Speaker</div>
-        </div>
-      </div>
-    </div> -->
+    
       <!-- <div class="testi-card featured reveal">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-quote">"Within weeks, my content started generating conversations that turned into paying clients."</p>
