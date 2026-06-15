@@ -1022,7 +1022,30 @@ transform:scale(1.06);
         height: 25%;
         object-fit: cover;
     }
+
+    .hero-actions{
+        margin-left: 0 !important;
+        margin-top: 20px !important;
+        text-align: center;
+    }
+
+    .hero-btn{
+        display: inline-block;
+    }
+     .about-text{
+        margin-left: 0 !important;
+        width: 90% !important;
+        max-width: 100% !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+        text-align: center;
+    }
+
+    .about-text p{
+        line-height: 1.8;
+    }
 }
+
 /* Desktop */
 .port-grid{
     grid-template-columns: repeat(12,1fr);
@@ -1076,7 +1099,7 @@ transform:scale(1.06);
 }
 @media (max-width: 1024px){
 
-    .port-grid{
+    /* .port-grid{
         grid-template-columns: repeat(6,1fr);
     }
 
@@ -1086,6 +1109,30 @@ transform:scale(1.06);
 
     .port-item.horizontal{
         grid-column: span 3;
+    } */
+    .port-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .port-item{
+        grid-column: span 1;
+    }
+
+    .horizontal{
+        grid-column: span 2;
+    }
+
+    .about-wrap{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text{
+        margin-left: 0 !important;
+        width: 90% !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
     }
 }
 /* 
