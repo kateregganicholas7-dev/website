@@ -2773,18 +2773,25 @@ video.muted = true;
 </script>
 <script>
 
-const portvideo= document.querySelectorAll('.t-video');
+const testimonialVideos = document.querySelectorAll('.t-video');
 
-videos.forEach(video => {
+testimonialVideos.forEach(video => {
 
     video.parentElement.addEventListener('mouseenter', () => {
 
-        videos.forEach(v => {
+        testimonialVideos.forEach(v => {
             v.pause();
             v.currentTime = 0;
         });
 
-        video.play();
+        video.play().catch(() => {});
+
+    });
+
+    video.parentElement.addEventListener('mouseleave', () => {
+
+        video.pause();
+        video.currentTime = 0;
 
     });
 
@@ -2869,7 +2876,7 @@ document.addEventListener('mousemove', (e) => {
   document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
 });
 </script>
-<script>
+<!-- <script>
 const counter = document.querySelector('.counter');
 let count = 0;
 
@@ -2881,7 +2888,7 @@ const interval = setInterval(() => {
     clearInterval(interval);
   }
 },20);
-</script>
+</script> -->
 <script>
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
@@ -2967,20 +2974,26 @@ for(let i = 0; i < 15; i++){
 }
 </script>
 <script>
-const btn = document.querySelector('.hero_btn');
+const btn = document.querySelector('.hero-btn'); // use your actual class
 
-btn.addEventListener('mousemove', e => {
-  const rect = btn.getBoundingClientRect();
+if (btn) {
 
-  const x = e.clientX - rect.left - rect.width/2;
-  const y = e.clientY - rect.top - rect.height/2;
+    btn.addEventListener('mousemove', e => {
 
-  btn.style.transform = `translate(${x*0.2}px, ${y*0.2}px)`;
-});
+        const rect = btn.getBoundingClientRect();
 
-hero_btn.addEventListener('mouseleave', () => {
-  btn.style.transform = 'translate(0,0)';
-});
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0,0)';
+    });
+  }
+
 </script>
 <script>
 const text =
