@@ -207,7 +207,7 @@ body{
   color:#d8a227;
   text-decoration:none;
   letter-spacing:2px;
-  transition:.3s;
+  /* transition:.3s; */
 }
 
 .nav-btn:hover{
@@ -235,9 +235,9 @@ body{
 
     filter: blur(20px);
 }
-.hero-glow{
+/* .hero-glow{
     animation: glowMove 8s ease-in-out infinite;
-}
+} */
 /* #particles-js{
     position:fixed;
     inset:0;
@@ -248,13 +248,13 @@ body{
     width: 100%;
     height: 100%;
 } */
- #particles{
+ /* #particles{
     position:fixed;
     inset:0;
     pointer-events:none;
     z-index:0;
     overflow:hidden;
-}
+} */
 
  /* .particle{
     position:absolute;
@@ -692,10 +692,10 @@ section{padding:110px 6%}
     display:block;
 }
 
-.testimonial-card:hover .t-video{
+/* .testimonial-card:hover .t-video{
     transform:scale(1.04);
     filter:brightness(1);
-}
+} */
 
 /* PLAY BUTTON */
 .play-btn{
@@ -2145,15 +2145,172 @@ transition:0.3s;
     }
 
 }
+/* =====================================================
+   KAT NICHOLAS FOOTER
+===================================================== */
+
+footer {
+    background: #0d131e;
+    color: #656b7a;
+    padding: 70px 6% 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* TOP SECTION */
+.footer-top {
+    max-width: 1700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 60px;
+    position: relative;
+}
+
+/* PARTICLES */
+#particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* LOGO */
+.f-logo {
+    color: #d89b27;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+/* TAGLINE */
+.f-tagline {
+    max-width: 300px;
+    margin: 0;
+    color: #626a79;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+/* SOCIAL ICONS */
+.f-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 27px;
+}
+
+.f-soc {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(216, 155, 39, 0.35);
+    border-radius: 4px;
+    color: #d89b27;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* COLUMN TITLES */
+.f-col-title {
+    color: #d89b27;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+/* LINKS */
+.f-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.f-links li {
+    margin-bottom: 15px;
+}
+
+.f-links a {
+    color: #626a79;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.f-links a:hover {
+    color: #d89b27;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    max-width: 1700px;
+    margin: 55px auto 0;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #8a6b27;
+    font-size: 12px;
+}
+
+.footer-bottom span span {
+    color: #8a6b27;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    footer {
+        padding: 55px 25px 25px;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .f-tagline {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        line-height: 1.5;
+    }
+}
+
+/* TEMPORARILY DISABLE ALL ANIMATIONS */
+*,
+*::before,
+*::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VRXQC9841R"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-VRXQC9841R"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-VRXQC9841R');
-</script>
+</script> -->
 </head>
 <body>
   <!-- <div id="particles-js"></div>
@@ -2918,7 +3075,7 @@ transition:0.3s;
 
 <!-- ── CTA BAND ──────────────────────────────────────── -->
 <section id="cta">
-  <div id="particles-js"></div>
+  <!-- <div id="particles-js"></div> -->
   
   <div class="cta-eyebrow">Ready to elevate your brand?</div>
   <h2 class="cta-title reveal">Stop letting your content<br><em>undersell</em> your expertise.</h2>
@@ -3163,7 +3320,7 @@ video.muted = true;
 
 });
 </script>
-<script>
+<!-- <script>
 
 const testimonialVideos = document.querySelectorAll('.t-video');
 
@@ -3189,7 +3346,7 @@ testimonialVideos.forEach(video => {
 
 });
 
-</script>
+</script> -->
 <script>
 const glow = document.querySelector('.hero-glow');
 
@@ -3242,7 +3399,7 @@ boxes.forEach(box => {
     observer.observe(box);
 });
 </script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
 AOS.init({
@@ -3267,7 +3424,7 @@ document.addEventListener('mousemove', (e) => {
   document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
   document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
 });
-</script>
+</script> -->
 <!-- <script>
 const counter = document.querySelector('.counter');
 let count = 0;
@@ -3281,7 +3438,7 @@ const interval = setInterval(() => {
   }
 },20);
 </script> -->
-<script>
+<!-- <script>
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
   document.querySelector('.hero-glow').style.transform =
@@ -3386,8 +3543,8 @@ if (btn) {
     });
   }
 
-</script>
-<script>
+</script> -->
+<!-- <script>
 const text =
 "saying.";
 
@@ -3418,7 +3575,7 @@ document.querySelectorAll('.testimonial-card').forEach(card => {
     });
 
 });
-</script>
+</script> -->
 <!-- <script>
 
 document.addEventListener('mousemove', e => {
