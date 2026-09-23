@@ -1280,6 +1280,29 @@ align-items:center;
 ──────────────────────────────────────────────*/
 #portfolio{background:var(--cream2);padding:110px 6%}
 .port-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px;flex-wrap:wrap;gap:24px}
+
+/* Portfolio scrolling reel */
+.port-reel{
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.port-track{
+  display:flex;gap:16px;width:max-content;
+  animation:portReelScroll 40s linear infinite;
+}
+.port-reel:hover .port-track{animation-play-state:paused}
+.port-clip{
+  width:220px;aspect-ratio:9/16;border-radius:20px;
+  overflow:hidden;background:var(--navy);flex-shrink:0;position:relative;
+}
+.port-clip iframe{
+  position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;
+}
+.port-clip.crop iframe{transform:scale(3.2);transform-origin:center}
+@keyframes portReelScroll{to{transform:translateX(-50%)}}
+@media (max-width:768px){.port-clip{width:150px}}
+
 .port-grid{
   display:grid;
   grid-template-columns:repeat(12,1fr);
@@ -1402,6 +1425,7 @@ transform:scale(1.06);
 
     .port-item.horizontal{
         grid-column: span 4;
+        height: auto;
     }
 }
 
@@ -1418,6 +1442,7 @@ transform:scale(1.06);
 
     .port-item.horizontal{
         grid-column: span 4;
+        height: auto;
     }
 }
 
@@ -2752,117 +2777,18 @@ footer {
       <!-- EDIT: Add your real YouTube/Vimeo links to the portfolio items below -->
     </div>
   </div>
-  <div class="port-grid">
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#1A0A2E 0%,#2A1245 50%,#0D0618 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226868513?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="VA podcast short AD"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Brand Story · 2 min</div> -->
-          <!-- <div class="port-title">Executive Coaching Brand Story Reel</div> -->
-        </div>
-      </div>
-    </div>
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#1A0A2E 100%)"></div> -->
-         <iframe src="https://player.vimeo.com/video/1226869181?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="Copy of jess 1"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Short Form · Series of 5</div> -->
-          <!-- <div class="port-title">Business Coach Instagram Reels</div> -->
-        </div>
-      </div>
-    </div>
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#2A1245 0%,#111827 100%)"></div> -->
-         <iframe src="https://player.vimeo.com/video/1226867818?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="Copy of positivity"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Podcast · 45 min</div> -->
-          <!-- <div class="port-title">Sales Consultant Podcast Series</div> -->
-        </div>
-      </div>
-    </div>
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(160deg,#1A0A2E 0%,#0D0618 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226868947?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="Copy of Food 2"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Course · 12 modules</div> -->
-          <!-- <div class="port-title">Life Coach Online Course</div> -->
-        </div>
-      </div>
-    </div>
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226868860?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="Copy of engagment"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
-          <!-- <div class="port-title">Mindset Coach Testimonial Reel</div> -->
-        </div>
-      </div>
-    </div>
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226868051?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="Lead thoughts"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
-          <!-- <div class="port-title">Mindset Coach Testimonial Reel</div> -->
-        </div>
-      </div>
-    </div>
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226869404?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="Copy of not brand"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
-          <!-- <div class="port-title">Mindset Coach Testimonial Reel</div> -->
-        </div>
-      </div>
-    </div>
-    <div class="port-item reveal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226868423?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="Nat trailer"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Launch · VSL</div> -->
-          <!-- <div class="port-title">High-Ticket Offer Launch Video</div> -->
-        </div>
-      </div>
-    </div>
-     <!-- Horizontal videos -->
-     <div class="port-item reveal horizontal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226868533?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="audience"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Launch · VSL</div> -->
-          <!-- <div class="port-title">High-Ticket Offer Launch Video</div> -->
-        </div>
-      </div>
-    </div>
-     <div class="port-item reveal horizontal">
-      <div class="port-thumb">
-        <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
-          <iframe src="https://player.vimeo.com/video/1226868020?controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;pointer-events:none;" title="failure part 1"></iframe>
-        <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <div class="port-info">
-          <!-- <div class="port-tag">Launch · VSL</div> -->
-          <!-- <div class="port-title">High-Ticket Offer Launch Video</div> -->
-        </div>
-      </div>
+  <div class="port-reel">
+    <div class="port-track" id="portfolioTrack">
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226868513?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="VA podcast short AD"></iframe></div>
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226869181?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Copy of jess 1"></iframe></div>
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226867818?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Copy of positivity"></iframe></div>
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226868947?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Copy of Food 2"></iframe></div>
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226868860?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Copy of engagment"></iframe></div>
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226868051?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Lead thoughts"></iframe></div>
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226869404?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Copy of not brand"></iframe></div>
+      <div class="port-clip"><iframe src="https://player.vimeo.com/video/1226868423?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Nat trailer"></iframe></div>
+      <div class="port-clip crop"><iframe src="https://player.vimeo.com/video/1226868533?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="audience"></iframe></div>
+      <div class="port-clip crop"><iframe src="https://player.vimeo.com/video/1226868020?background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="failure part 1"></iframe></div>
     </div>
   </div>
 </section>
@@ -3297,32 +3223,46 @@ function toggleOtherField() {
     var player = new Vimeo.Player(iframe);
     var isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
 
+    function playWithSound(){
+      return player.ready()
+        .then(function(){ return player.setVolume(1); })
+        .then(function(){ return player.play(); });
+    }
+
     if(isTouch){
       var playing = false;
       container.addEventListener('click', function(){
         if(playing){
-          player.pause();
+          player.ready().then(function(){ player.pause(); });
           playing = false;
         } else {
-          player.play().catch(function(){});
+          playWithSound().catch(function(){});
           playing = true;
         }
       });
     } else {
       container.addEventListener('mouseenter', function(){
-        player.play().catch(function(){
+        playWithSound().catch(function(){
           player.setVolume(0);
           player.play().catch(function(){});
         });
       });
       container.addEventListener('mouseleave', function(){
-        player.pause();
-        player.setCurrentTime(0).catch(function(){});
+        player.ready().then(function(){
+          player.pause();
+          player.setCurrentTime(0).catch(function(){});
+        });
       });
     }
   }
 
   document.querySelectorAll('.port-item, .testimonial-card').forEach(wireHoverPlay);
+})();
+</script>
+<script>
+(function(){
+  var track = document.getElementById('portfolioTrack');
+  if(track) track.innerHTML += track.innerHTML;
 })();
 </script>
 <!-- <script>
