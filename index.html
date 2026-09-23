@@ -1301,9 +1301,11 @@ background:rgba(0,0,0,.18);
 transition:.3s;
 pointer-events:none;
 }
+@media (hover:hover) and (pointer:fine){
 .port-item:hover{transform:scale(1.015);box-shadow:0 20px 60px rgba(0,0,0,.2)}
 .port-item:hover::after{
 opacity:0;
+}
 }
 .port-video{
 transition:transform .6s ease;
@@ -1313,8 +1315,10 @@ object-fit: contain;
 
 }
 
+@media (hover:hover) and (pointer:fine){
 .port-item:hover .port-video{
 transform:scale(1.06);
+}
 }
 /* Vertical videos */
 .port-item:not(.horizontal){
@@ -1326,6 +1330,11 @@ transform:scale(1.06);
     grid-column: span 6;
     height: 470px;
     aspect-ratio: 16/9;
+}
+
+.port-item.horizontal .port-thumb{
+    aspect-ratio: 16/9;
+    height: 100%;
 }
 
 .port-item.horizontal video{
@@ -1494,6 +1503,7 @@ display:block;
   background:rgba(0,0,0,0);
   transition:background .3s;
   display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
 }
 /* .port-item:hover .port-overlay{background:rgba(0,0,0,.4)} */
 .play-ring{
@@ -1503,14 +1513,22 @@ display:block;
   color:var(--gold);font-size:18px;
   opacity:0;transform:scale(.8);transition:all .3s;
 }
-.port-item:hover .play-ring{opacity:1;transform:scale(1)}
 .port-info{
   position:absolute;bottom:0;left:0;right:0;
   background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
   padding:32px 20px 16px;
   transform:translateY(4px);transition:transform .3s;
+  pointer-events:none;
 }
+@media (hover:hover) and (pointer:fine){
+.port-item:hover .play-ring{opacity:1;transform:scale(1)}
 .port-item:hover .port-info{transform:translateY(0)}
+}
+@media (hover:none),(pointer:coarse){
+.port-overlay{display:none}
+.port-info{display:none}
+.port-item::after{display:none}
+}
 .port-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
 .port-title{font-size:13px;color:#fff;font-weight:500}
 
@@ -2418,9 +2436,7 @@ footer {
         <div class="testimonial-card">
 
             <div class="testimonial-video">
-                <video class="t-video" loop playsinline>
-                    <source src="Annelise.mp4" type="video/mp4">
-                </video>
+                <iframe class="t-video" src="https://player.vimeo.com/video/1226867556" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="border:0;" title="Annelise"></iframe>
             </div>
 
             <div class="testimonial-content">
@@ -2450,9 +2466,7 @@ footer {
         <div class="testimonial-card">
 
             <div class="testimonial-video">
-                <video class="t-video" loop playsinline>
-                    <source src="Trang.mp4" type="video/mp4">
-                </video>
+                <iframe class="t-video" src="https://player.vimeo.com/video/1226867557" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="border:0;" title="Trang"></iframe>
 
                 <!-- <div class="play-btn">▶</div> -->
             </div>
@@ -2485,9 +2499,7 @@ footer {
         <div class="testimonial-card">
 
             <div class="testimonial-video">
-                <video class="t-video" loop playsinline>
-                    <source src="Jess_1.mp4" type="video/mp4">
-                </video>
+                <iframe class="t-video" src="https://player.vimeo.com/video/1226867554" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="border:0;" title="Jess"></iframe>
 
                 <!-- <div class="play-btn">▶</div> -->
             </div>
@@ -2517,9 +2529,7 @@ footer {
         <div class="testimonial-card">
 
             <div class="testimonial-video">
-                <video class="t-video" loop playsinline>
-                    <source src="Nat.mp4" type="video/mp4">
-                </video>
+                <iframe class="t-video" src="https://player.vimeo.com/video/1226867553" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="border:0;" title="Nat"></iframe>
 
                 <!-- <div class="play-btn">▶</div> -->
             </div>
@@ -2746,8 +2756,7 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#1A0A2E 0%,#2A1245 50%,#0D0618 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="VA podcast short AD.mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226868513" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="VA podcast short AD"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Brand Story · 2 min</div> -->
@@ -2758,8 +2767,7 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#1A0A2E 100%)"></div> -->
-         <video class="port-video" autoplay loop playsinline>
-            <source src="Copy of jess 1.mp4" type="video/mp4"> </video>
+         <iframe src="https://player.vimeo.com/video/1226869181" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Copy of jess 1"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Short Form · Series of 5</div> -->
@@ -2770,12 +2778,8 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#2A1245 0%,#111827 100%)"></div> -->
-         <video class="port-video" autoplay loop playsinline>
-            <source src="Copy of positivity.mp4" type="video/mp4"> </video>
+         <iframe src="https://player.vimeo.com/video/1226867818" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Copy of positivity"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
-        <!-- <div style="padding:177.78% 0 0 0;position:relative;">
-          <iframe src="https://player.vimeo.com/video/1054785178?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="positivity"></iframe>
-        </div><script src="https://player.vimeo.com/api/player.js"></script> -->
         <div class="port-info">
           <!-- <div class="port-tag">Podcast · 45 min</div> -->
           <!-- <div class="port-title">Sales Consultant Podcast Series</div> -->
@@ -2785,8 +2789,7 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(160deg,#1A0A2E 0%,#0D0618 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="Copy of Food 2 (1).mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226868947" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Copy of Food 2"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Course · 12 modules</div> -->
@@ -2797,8 +2800,7 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="Copy of engagment.mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226868860" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Copy of engagment"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
@@ -2809,8 +2811,7 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="Lead thoughts.mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226868051" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Lead thoughts"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
@@ -2821,8 +2822,7 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#111827 0%,#2A1245 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="Copy of not brand.mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226869404" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Copy of not brand"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Testimonials · 90 sec</div> -->
@@ -2833,8 +2833,7 @@ footer {
     <div class="port-item reveal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="Nat trailer.mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226868423" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="Nat trailer"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Launch · VSL</div> -->
@@ -2846,8 +2845,7 @@ footer {
      <div class="port-item reveal horizontal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="audience.mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226868533" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="audience"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Launch · VSL</div> -->
@@ -2858,8 +2856,7 @@ footer {
      <div class="port-item reveal horizontal">
       <div class="port-thumb">
         <!-- <div class="port-bg" style="background:linear-gradient(135deg,#0D0618 0%,#1A0A2E 100%)"></div> -->
-          <video class="port-video" autoplay loop playsinline>
-            <source src="failure part 1.mp4" type="video/mp4"> </video>
+          <iframe src="https://player.vimeo.com/video/1226868020" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" title="failure part 1"></iframe>
         <div class="port-overlay"><div class="play-ring">▶</div></div>
         <div class="port-info">
           <!-- <div class="port-tag">Launch · VSL</div> -->
