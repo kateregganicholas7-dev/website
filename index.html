@@ -2336,6 +2336,28 @@ footer {
     }
 }
 
+/* Match testimonial video size to the portfolio reel clips, mobile only */
+@media (max-width: 768px){
+    .testimonials-grid{
+        grid-template-columns: repeat(2, 1fr) !important;
+        justify-content: center;
+        gap: 12px !important;
+    }
+    .testimonial-card{
+        width: 150px !important;
+        margin: 0 auto;
+    }
+    .testimonial-video{
+        width: 150px !important;
+        height: auto !important;
+        aspect-ratio: 9/16 !important;
+    }
+    .t-video{
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
 </style>
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-VRXQC9841R"></script>
 <script>
@@ -2786,12 +2808,12 @@ footer {
 
 
  <section id="testimonials">
-  <div class="shooting-stars">
+  <!-- <div class="shooting-stars">
     <span></span>
     <span></span>
     <span></span>
     <span></span>
-</div> 
+</div>  -->
   <div style="text-align:center;max-width:540px;margin:0 auto 72px;" class="reveal">
     <div class="s-tag" style="justify-content:center;">Client Love</div>
     <h2 class="s-title hero-title" style="color:#F0F0FF;"> <em>What coaches are </em></h2>
