@@ -2338,23 +2338,46 @@ footer {
 
 /* Match testimonial video size to the portfolio reel clips, mobile only */
 @media (max-width: 768px){
+    .testimonials-section{
+        padding-left: 3% !important;
+        padding-right: 3% !important;
+    }
     .testimonials-grid{
         grid-template-columns: repeat(2, 1fr) !important;
         justify-content: center;
-        gap: 12px !important;
+        gap: 8px !important;
     }
     .testimonial-card{
-        width: 150px !important;
+        width: 100% !important;
         margin: 0 auto;
     }
     .testimonial-video{
-        width: 150px !important;
+        width: 100% !important;
         height: auto !important;
         aspect-ratio: 9/16 !important;
     }
     .t-video{
         width: 100% !important;
         height: 100% !important;
+    }
+    .testimonial-content{
+        padding: 6px 8px 10px !important;
+    }
+    .t-person{
+        padding-top: 8px !important;
+        gap: 8px !important;
+    }
+    .avatar{
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 12px !important;
+    }
+    .t-name{
+        font-size: 12px !important;
+    }
+    .t-role{
+        font-size: 11px !important;
+        margin-top: 2px !important;
     }
 }
 
